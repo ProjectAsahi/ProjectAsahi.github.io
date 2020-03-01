@@ -5,7 +5,6 @@ import { Header } from './components/Header';
 import { routes } from './config/routes';
 import { Router, Location } from "@reach/router";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { Footer } from './components/Footer';
 
 
 const FadeTransitionRouter = (props: any) => (
