@@ -1,0 +1,9 @@
+.home-container {
+    display: flex;
+    height: 100%;
+    flex-flow: column;
+}
+
+.home-container>:nth-child(1) {
+    flex: 1;
+}

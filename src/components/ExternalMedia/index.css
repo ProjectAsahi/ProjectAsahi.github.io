@@ -1,0 +1,9 @@
+.external-media-logo {
+    width: 2.5rem;
+    margin: 0.5rem;
+}
+
+.verticel-media-logo-container {
+    display: flex;
+    flex-flow: column;
+}

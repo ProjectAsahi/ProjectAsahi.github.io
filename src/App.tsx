@@ -1,17 +1,41 @@
-import React from 'react';
-import logo from './live_cut.png';
+import React, { useState } from 'react';
 import './App.css';
+import { Intro } from './components/Intro';
+import { Header } from './components/Header';
+import { routes } from './config/routes';
+import { Router, Location } from "@reach/router";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { Footer } from './components/Footer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <span style={{color: "#0080ff"}}>COMING</span> <span style={{color: "#ff3fb9"}}>SOON!</span></p>
-      </header>
-    </div>
-  );
+
+const FadeTransitionRouter = (props: any) => (
+  <Location>
+    {({ location }) => (
+      <TransitionGroup className="transition-group">
+        <CSSTransition key={location.key} classNames="fade" timeout={300}>
+          <Router location={location} className="router">
+            {props.children}
+          </Router>
+        </CSSTransition>
+      </TransitionGroup>
+    )}
+  </Location>
+);
+
+const Content = () => {
+  return <FadeTransitionRouter primary={false}>
+    {routes.map(({ path, Component }) => <Component path={path} />)}
+  </FadeTransitionRouter>;
 }
 
-export default App;
+export default () => {
+  const [introPlayed, setIntroPlayed] = useState(false);
+  const [introIsVisible, setIntroIsVisible] = useState(true);
+  return <div className={`app ${introIsVisible ? 'app-intro-container' : ''}`}>
+    {introIsVisible && <Intro callback={() => setIntroPlayed(true)} completed={() => setIntroIsVisible(false)} />}
+    <div className={`content-container ${introPlayed ? 'is-display' : ''}`}>
+      <Header />
+      <Content />
+    </div>
+  </div>;
+}
