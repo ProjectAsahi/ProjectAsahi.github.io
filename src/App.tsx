@@ -23,7 +23,7 @@ const FadeTransitionRouter = (props: any) => (
 
 const Content = () => {
   return <FadeTransitionRouter primary={false}>
-    {routes.map(({ path, Component }) => <Component path={path} />)}
+    {routes.map(({ path, Component }, index) => <Component key={index} path={path} />)}
   </FadeTransitionRouter>;
 }
 

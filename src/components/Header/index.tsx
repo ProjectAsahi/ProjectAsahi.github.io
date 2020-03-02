@@ -1,25 +1,30 @@
 import React, { useState } from "react";
-import logo from './assets/logo.svg';
 import menu from './assets/menu.svg';
 import menu_white from './assets/menu_white.svg';
 import './index.css';
 import { routes } from "../../config/routes";
 import { ExternalMedia } from "../ExternalMedia";
 import { Link } from "@reach/router"
+import logoAnimation from './assets/projectasahi_logo.json';
+import { Lottie } from "@crello/react-lottie";
 
 export const Header = () => {
     const [menuPanelShown, setMenuPanelShown] = useState(false);
     const [shouldMenuDisplay, setShouldMenuDisplay] = useState(false);
+    const [shouldLogoAnimationPlay, setShoulLogoAnimationPlay] = useState(false);
     const menus = routes.sort((n1, n2) => n1.order - n2.order);
+
+    setTimeout(() => {
+        setShoulLogoAnimationPlay(true);
+    }, 3500);
 
     setTimeout(() => {
         setShouldMenuDisplay(true);
     }, 4000);
-
     return <div className="header-container">
         <div className="logo-container">
-            <img src={logo} alt="logo" />
-            <span>Official Website</span>
+            {shouldLogoAnimationPlay &&
+                <Lottie config={{ animationData: logoAnimation, loop: false }}></Lottie>}
         </div>
         <div className="menu-container">
             <div className="menu-content">
