@@ -29,6 +29,7 @@ const Content = () => {
 }
 
 export default () => {
+
   const [introPlayed, setIntroPlayed] = useState(false);
   const [introIsVisible, setIntroIsVisible] = useState(true);
   return <div className={`${styles.app} ${introIsVisible ? styles.app_intro_container : ''}`}>

@@ -4,9 +4,9 @@
 }
 
 .logo_container {
-    margin-top: 5rem;
-    margin-left: 5rem;
-    width: 30%;
+    margin-top: 2rem;
+    margin-left: 3rem;
+    width: 40%;
     font-size: 2em;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .menu_layout.menu_background {
-    background-color: gray;
+    background-color: black;
     height: 100vh;
     max-height: 100vh;
     width: 100vw;
@@ -74,15 +74,15 @@
 
 .menu_layout {
     z-index: 10;
-    max-height: 50vh;
+    max-height: 100vh;
+    overflow: scroll;
     height: auto;
     position: fixed;
     width: 50vw;
     background-color: #0080ff;
-    top: -51vh;
+    top: -100%;
     right: 0;
     transition: all 0.3s ease-in-out;
-    overflow: scroll;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -111,8 +111,8 @@
         margin-left: 1rem;
     }
     .menu_button {
-        margin-top: 1rem;
-        margin-right: 1rem;
+        margin-top: 1.5rem;
+        margin-right: 1.5rem;
         width: 4vw;
     }
 }

@@ -17,7 +17,7 @@ export const routes = [
     },
     {
         order: 1,
-        display: "Home",
+        display: "Top",
         path: "/",
         exact: true,
         Component: Home

@@ -1,7 +1,6 @@
 import React from "react";
-import { RouteComponentProps } from "@reach/router";
 
-export const Biography = (props: RouteComponentProps) => {
+export const Biography = () => {
     return <div style={{height: '200vh'}}>
         Biography!
     </div>;

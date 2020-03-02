@@ -1,6 +1,7 @@
 .app {
   width: 100%;
   height: 100%;
+  overflow: overlay;
 }
 
 .app_intro_container {
@@ -21,8 +22,12 @@
   transition: all 0.5s ease-in-out;
 }
 
+.content_container>:nth-child(1) {
+  flex: 0 1 auto;
+}
+
 .content_container>:nth-child(2) {
-  flex: 1;
+  flex: 1 1 auto;
 }
 
 .content_container.is_display {
