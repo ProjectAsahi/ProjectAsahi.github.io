@@ -1,70 +1,70 @@
-.header-container {
+.header_container {
     display: flex;
     justify-content: space-between;
 }
 
-.logo-container {
+.logo_container {
     margin-top: 5rem;
     margin-left: 5rem;
     width: 30%;
     font-size: 2em;
 }
 
-.external-media-container>.verticel-media-logo-container {
+.external_media_container>:first-child {
     align-items: flex-end;
     float: right;
     margin-right: -2rem;
     margin-top: 3rem;
 }
 
-.menu-container {
+.menu_container {
     margin-top: 3rem;
     margin-right: 3rem;
 }
 
-.menu-content>* {
+.menu_content>* {
     margin: 1em;
     text-decoration: none;
     color: #ff3fb9;
     font-size: x-large;
 }
 
-.verticel-menu {
+.verticel_menu {
     margin-top: calc(5vw + 1rem);
     display: flex;
     flex-flow: column;
     align-items: center;
 }
 
-.menu-content.verticel-menu>* {
+.menu_content.verticel_menu>* {
     margin: 0.5rem;
     color: white;
 }
 
-.menu-button-container {
+.menu_button_container {
     display: none;
 }
 
-.menu-close-button {
+.menu_close_button {
     position: fixed;
     right: 0;
 }
 
-.menu-show {
+.menu_show {
     top: 0 !important;
 }
 
-.menu-background-show {
+.menu_background_show {
     opacity: 0.7;
     visibility: visible;
 }
 
-.menu-background-hide {
+.menu_background_hide {
     opacity: 0;
     visibility: hidden;
 }
 
-.menu-layout.menu-background {
+.menu_layout.menu_background {
     background-color: gray;
     height: 100vh;
     max-height: 100vh;
@@ -72,7 +72,7 @@
     top: 0;
 }
 
-.menu-layout {
+.menu_layout {
     z-index: 10;
     max-height: 50vh;
     height: auto;
@@ -86,31 +86,31 @@
 }
 
 @media only screen and (max-width: 1024px) {
-    .logo-container {
+    .logo_container {
         margin-top: 2rem;
         margin-left: 2rem;
         width: 50%;
         font-size: 4vmin;
     }
-    .menu-button {
+    .menu_button {
         margin-top: 2rem;
         margin-right: 2rem;
         width: 4vw;
     }
-    .menu-container {
+    .menu_container {
         display: none;
     }
-    .menu-button-container {
+    .menu_button_container {
         display: block;
     }
 }
 
 @media only screen and (max-width: 768px) {
-    .logo-container {
+    .logo_container {
         margin-top: 1rem;
         margin-left: 1rem;
     }
-    .menu-button {
+    .menu_button {
         margin-top: 1rem;
         margin-right: 1rem;
         width: 4vw;
@@ -118,13 +118,13 @@
 }
 
 @media only screen and (max-width: 425px) {
-    .logo-container {
+    .logo_container {
         width: 70%;
     }
-    .menu-layout {
+    .menu_layout {
         width: 100vw;
     }
-    .menu-button {
+    .menu_button {
         width: 5vw;
     }
 }

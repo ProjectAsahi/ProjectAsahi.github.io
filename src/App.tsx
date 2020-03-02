@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './App.module.css';
 import './App.css';
 import { Intro } from './components/Intro';
 import { Header } from './components/Header';
@@ -10,9 +11,9 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 const FadeTransitionRouter = (props: any) => (
   <Location>
     {({ location }) => (
-      <TransitionGroup className="transition-group">
+      <TransitionGroup className={styles.transition_group}>
         <CSSTransition key={location.key} classNames="fade" timeout={300}>
-          <Router location={location} className="router">
+          <Router location={location} className={styles.router}>
             {props.children}
           </Router>
         </CSSTransition>
@@ -30,9 +31,9 @@ const Content = () => {
 export default () => {
   const [introPlayed, setIntroPlayed] = useState(false);
   const [introIsVisible, setIntroIsVisible] = useState(true);
-  return <div className={`app ${introIsVisible ? 'app-intro-container' : ''}`}>
+  return <div className={`${styles.app} ${introIsVisible ? styles.app_intro_container : ''}`}>
     {introIsVisible && <Intro callback={() => setIntroPlayed(true)} completed={() => setIntroIsVisible(false)} />}
-    <div className={`content-container ${introPlayed ? 'is-display' : ''}`}>
+    <div className={`${styles.content_container} ${introPlayed ? styles.is_display : ''}`}>
       <Header />
       <Content />
     </div>

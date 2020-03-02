@@ -1,9 +1,9 @@
 import React from "react";
-import './index.css';
+import styles from './index.module.css';
 import { Copyright } from "../Copyright";
 
 export const Footer = () => {
-    return <div className="footer-container">
+    return <div className={styles.footer_container}>
         <Copyright/>
     </div>;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Lottie } from '@crello/react-lottie'
 import logoAnimation from './logo.json'
-import './index.css'
+import styles from './index.module.css'
 
 interface IProps {
     callback?: () => void
@@ -10,7 +10,7 @@ interface IProps {
 
 export const Intro = (props: IProps) => {
     const [called, setCalled] = useState(false);
-    return <div className={"intro-container"}>
+    return <div className={styles.intro_container}>
         <Lottie config={{ animationData: logoAnimation, loop: false }} lottieEventListeners={[
             {
                 callback: (e) => {

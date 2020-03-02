@@ -1,12 +1,12 @@
 import React from "react";
 import { RouteComponentProps } from "@reach/router";
 import { Footer } from "../Footer";
-import './index.css';
+import styles from './index.module.css';
 
 export const Home = (props: RouteComponentProps) => {
-    return <div className="home-container">
+    return <div className={styles.home_container}>
         <div>
-            home!
+
         </div>
       <Footer />
     </div>;

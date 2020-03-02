@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import menu from './assets/menu.svg';
 import menu_white from './assets/menu_white.svg';
-import './index.css';
+import styles from './index.module.css';
 import { routes } from "../../config/routes";
 import { ExternalMedia } from "../ExternalMedia";
 import { Link } from "@reach/router"
@@ -21,25 +21,25 @@ export const Header = () => {
     setTimeout(() => {
         setShouldMenuDisplay(true);
     }, 4000);
-    return <div className="header-container">
-        <div className="logo-container">
+    return <div className={styles.header_container}>
+        <div className={styles.logo_container}>
             {shouldLogoAnimationPlay &&
                 <Lottie config={{ animationData: logoAnimation, loop: false }}></Lottie>}
         </div>
-        <div className="menu-container">
-            <div className="menu-content">
+        <div className={styles.menu_container}>
+            <div className={styles.menu_content}>
                 {menus.map((it, index) => <Link key={index} to={it.path}>{it.display}</Link>)}
             </div>
-            <div className="external-media-container">
+            <div className={styles.external_media_container}>
                 <ExternalMedia colored={true} orientation="verticel" />
             </div>
         </div>
-        <div className="menu-button-container">
-            <img src={menu} alt="menu button" onClick={() => setMenuPanelShown(true)} className="menu-button" />
-            <div className={`menu-layout menu-background ${menuPanelShown ? "menu-background-show" : "menu-background-hide"}`} onClick={() => setMenuPanelShown(false)}></div>
-            <div className={`${menuPanelShown ? "menu-show" : ""} menu-layout`} style={{ display: shouldMenuDisplay ? 'block' : 'none' }}>
-                <img src={menu_white} alt="menu close button" onClick={() => setMenuPanelShown(false)} className="menu-button menu-close-button" />
-                <div className="menu-content verticel-menu">
+        <div className={styles.menu_button_container}>
+            <img src={menu} alt="menu button" onClick={() => setMenuPanelShown(true)} className={styles.menu_button} />
+            <div className={`${styles.menu_layout} ${styles.menu_background} ${menuPanelShown ? styles.menu_background_show : styles.menu_background_hide}`} onClick={() => setMenuPanelShown(false)}></div>
+            <div className={`${menuPanelShown ? styles.menu_show : ""} ${styles.menu_layout}`} style={{ display: shouldMenuDisplay ? 'block' : 'none' }}>
+                <img src={menu_white} alt="menu close button" onClick={() => setMenuPanelShown(false)} className={`${styles.menu_button} ${styles.menu_close_button}`} />
+                <div className={`${styles.menu_content} ${styles.verticel_menu}`}>
                     {menus.map((it, index) => <Link key={index} onClick={() => setMenuPanelShown(false)} to={it.path}>{it.display}</Link>)}
                     <div>
                         <ExternalMedia colored={false} orientation="horizontal" />
