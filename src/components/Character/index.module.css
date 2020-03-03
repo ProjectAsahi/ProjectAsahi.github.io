@@ -1,0 +1,90 @@
+.character_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+}
+
+.character_desc_container {
+    margin-left: 10vw;
+    padding: 2rem;
+    max-width: 30%;
+}
+
+.avatar_name {
+    color: #ff3fb9;
+    font-size: 4em;
+    font-weight: bold;
+}
+
+.avatar_info>tbody>tr> :nth-child(2) {
+    padding-left: 1em;
+    padding-top: 0.5em;
+}
+
+.avatar_info>tbody>tr> :nth-child(1) {
+    padding-top: 0.5em;
+    color: #ff3fb9;
+}
+
+.avatar_container {
+    margin-top: -9rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.avatar_img_section {
+    display: flex;
+    justify-content: inherit;
+}
+
+.avatar_img_section>div {
+    cursor: pointer;
+    color: #ff3fb9;
+    padding: 0.5rem;
+}
+
+.avatar_img {
+    max-height: 90%;
+    max-width: 100%;
+    object-fit: scale-down;
+}
+
+@media only screen and (max-width: 1024px) {
+    .character_desc_container {
+        margin-left: 5vw;
+    }
+    .avatar_container {
+        margin-top: -5em;
+    }
+    .character_container {}
+}
+
+@media only screen and (max-width: 768px) {
+    .avatar_container {
+        margin-top: 0em;
+    }
+    .character_container {
+        height: auto;
+        flex-direction: column-reverse;
+    }
+    .character_desc_container {
+        margin-left: 0vw;
+        padding: 2rem;
+        max-width: 100%;
+    }
+    .avatar_img {
+        max-height: 100%;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .avatar_name {
+        font-size: 3.5em;
+    }
+    .avatar_img_section>div {
+        padding: 0.2rem;
+    }
+}

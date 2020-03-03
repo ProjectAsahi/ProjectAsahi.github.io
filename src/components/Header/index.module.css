@@ -1,0 +1,130 @@
+.header_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo_container {
+    margin-top: 2rem;
+    margin-left: 3rem;
+    width: 40%;
+    font-size: 2em;
+}
+
+.external_media_container>:first-child {
+    align-items: flex-end;
+    float: right;
+    margin-right: -2rem;
+    margin-top: 3rem;
+}
+
+.menu_container {
+    margin-top: 3rem;
+    margin-right: 3rem;
+}
+
+.menu_content>* {
+    margin: 1em;
+    text-decoration: none;
+    color: #ff3fb9;
+    font-size: x-large;
+}
+
+.verticel_menu {
+    margin-top: calc(5vw + 1rem);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.menu_content.verticel_menu>* {
+    margin: 0.5rem;
+    color: white;
+}
+
+.menu_button_container {
+    display: none;
+}
+
+.menu_close_button {
+    position: fixed;
+    right: 0;
+}
+
+.menu_show {
+    top: 0 !important;
+}
+
+.menu_background_show {
+    opacity: 0.7;
+    visibility: visible;
+}
+
+.menu_background_hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu_layout.menu_background {
+    background-color: black;
+    height: 100vh;
+    max-height: 100vh;
+    width: 100vw;
+    top: 0;
+}
+
+.menu_layout {
+    z-index: 10;
+    max-height: 100vh;
+    overflow: scroll;
+    height: auto;
+    position: fixed;
+    width: 50vw;
+    background-color: #0080ff;
+    top: -100%;
+    right: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 1024px) {
+    .logo_container {
+        margin-top: 2rem;
+        margin-left: 2rem;
+        width: 50%;
+        font-size: 4vmin;
+    }
+    .menu_button {
+        margin-top: 2rem;
+        margin-right: 2rem;
+        width: 4vw;
+    }
+    .menu_container {
+        display: none;
+    }
+    .menu_button_container {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .logo_container {
+        margin-top: 1rem;
+        margin-left: 1rem;
+    }
+    .menu_button {
+        margin-top: 1.5rem;
+        margin-right: 1.5rem;
+        width: 4vw;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .logo_container {
+        width: 70%;
+    }
+    .menu_layout {
+        width: 100vw;
+    }
+    .menu_button {
+        width: 5vw;
+    }
+}

@@ -1,0 +1,87 @@
+.home_container {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.avatar_container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.home_card {
+    position: fixed;
+    left: 0;
+    padding: 2rem;
+    margin-left: 15vw;
+    margin-top: 20vh;
+    color: white;
+    font-size: xx-large;
+}
+
+.home_card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: #0080ff;
+    transform: skew(-15deg);
+}
+
+.avatar_img {
+    width: 40%;
+    margin-left: 25vw;
+    margin-top: -9rem;
+    object-fit: cover;
+    object-position: top;
+}
+
+@media only screen and (max-width: 1024px) {
+    .avatar_img {
+        width: 50%;
+        height: 100%;
+        margin-left: 35vw;
+        margin-top: 0rem;
+    }
+    .home_card {
+        padding: 2rem;
+        margin-left: 5vw;
+        margin-top: 20vh;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .avatar_img {
+        width: 50%;
+        height: 100%;
+        margin-left: 25vw;
+        margin-top: 1rem;
+    }
+    .home_card {
+        padding: 1rem;
+        margin-left: 10vw;
+        bottom: 0;
+        margin-bottom: 50vh;
+        font-size: larger;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .avatar_img {
+        width: 70%;
+        height: 100%;
+        margin-left: 0vw;
+        margin-top: 0rem;
+    }
+    .home_card {
+        padding: 1rem;
+        margin-left: 5vw;
+        bottom: 0;
+        margin-bottom: 20vh;
+        font-size: medium;
+    }
+}

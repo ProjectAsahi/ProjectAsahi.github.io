@@ -1,0 +1,10 @@
+.intro_container {
+    width: 100%;
+    height: 40vmin;
+    pointer-events: none;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
