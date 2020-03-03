@@ -35,7 +35,7 @@
 .avatar_img {
     width: 40%;
     margin-left: 25vw;
-    margin-top: -9rem;
+    margin-top: -16vh;
     object-fit: cover;
     object-position: top;
 }
