@@ -1,19 +1,26 @@
 import { Home } from "../components/Home";
 import { About } from "../components/About";
-import { Biography } from "../components/Biography";
+import { Character } from "../components/Character";
+import { Collaboration } from "../components/Collaboration";
 
 export const routes = [
     {
-        order: 3,
+        order: 4,
         display: "About",
         path: "/about",
         Component: About
     },
     {
+        order: 3,
+        display: "Collaboration",
+        path: "/Collaboration",
+        Component: Collaboration
+    },
+    {
         order: 2,
-        display: "Biography",
-        path: "/biography",
-        Component: Biography
+        display: "Character",
+        path: "/character",
+        Component: Character
     },
     {
         order: 1,

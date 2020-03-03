@@ -1,7 +1,7 @@
 import React from "react";
 import { RouteComponentProps } from "@reach/router";
 import styles from './index.module.css';
-import avatar from './assets/avatar.png';
+import avatar from '../../assets/avatar.png';
 
 export const Home = (props: RouteComponentProps) => {
     return <div className={styles.home_container}>
@@ -10,7 +10,7 @@ export const Home = (props: RouteComponentProps) => {
                 “
             </span>
             <span>
-                我是朝陽，高垣朝陽
+                我叫朝陽，高垣朝陽
                 <br />
                 是男孩子！
             </span>

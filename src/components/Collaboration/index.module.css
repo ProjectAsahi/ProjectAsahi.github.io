@@ -1,0 +1,9 @@
+.collaboration_container {
+    position: absolute;
+    width: 100%;
+    bottom: 40vh;
+    display: flex;
+    justify-content: center;
+    font-weight: 900;
+    font-size: xx-large;
+}
