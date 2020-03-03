@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styles from './index.module.css';
-import gammingImage from './assets/gamming.png';
-import avatar3DImage from './assets/avatar_3d.png';
-import swimming from './assets/swimming.png';
-import live from './assets/live.png';
+import gammingImage from './assets/gamming.webp';
+import avatar3DImage from './assets/avatar_3d.webp';
+import swimming from './assets/swimming.webp';
+import live from './assets/live.webp';
 import { asahiData } from "../../data/asahiData";
-import avatar from '../../assets/avatar.png';
+import avatar from '../../assets/avatar.webp';
 
 const images = [
     {

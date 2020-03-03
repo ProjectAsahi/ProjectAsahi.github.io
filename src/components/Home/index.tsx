@@ -1,7 +1,7 @@
 import React from "react";
 import { RouteComponentProps } from "@reach/router";
 import styles from './index.module.css';
-import avatar from '../../assets/avatar.png';
+import avatar from '../../assets/avatar.webp';
 
 export const Home = (props: RouteComponentProps) => {
     return <div className={styles.home_container}>
