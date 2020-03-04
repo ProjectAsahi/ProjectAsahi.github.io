@@ -35,7 +35,7 @@
 .avatar_img {
     width: 40%;
     margin-left: 25vw;
-    margin-top: -9rem;
+    margin-top: -10rem;
 }
 
 .avatar_img > img {
@@ -48,9 +48,8 @@
 @media only screen and (max-width: 1024px) {
     .avatar_img {
         width: 50%;
-        height: 100%;
         margin-left: 35vw;
-        margin-top: 0rem;
+        margin-top: -5rem;
     }
     .home_card {
         padding: 2rem;
@@ -62,9 +61,8 @@
 @media only screen and (max-width: 768px) {
     .avatar_img {
         width: 50%;
-        height: 100%;
         margin-left: 25vw;
-        margin-top: 1rem;
+        margin-top: -2rem;
     }
     .home_card {
         padding: 1rem;

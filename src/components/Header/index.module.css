@@ -1,6 +1,7 @@
 .header_container {
     display: flex;
     justify-content: space-between;
+    z-index: 100;
 }
 
 .logo_container {
