@@ -13,7 +13,7 @@ export const Home = (props: RouteComponentProps) => {
             <span>
                 我叫朝陽，高垣朝陽
                 <br />
-                是男孩子！
+                是男孩子噢！
             </span>
         </div>
         <div className={styles.avatar_container}>
