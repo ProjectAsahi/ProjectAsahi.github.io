@@ -6,7 +6,7 @@ export const projectData = {
             color: "#0080ff"
         },
         {
-            title: "人设 & 原画",
+            title: "原画",
             name: "-salz-",
             link: "https://www.pixiv.net/users/1788244",
             color: "#ff3fb9"
