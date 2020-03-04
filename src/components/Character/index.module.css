@@ -49,9 +49,13 @@
 .avatar_img {
     max-height: 90%;
     max-width: 100%;
-    object-fit: scale-down;
 }
 
+.avatar_img > img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: scale-down;
+}
 @media only screen and (max-width: 1024px) {
     .character_desc_container {
         margin-left: 5vw;

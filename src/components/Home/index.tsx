@@ -2,6 +2,7 @@ import React from "react";
 import { RouteComponentProps } from "@reach/router";
 import styles from './index.module.css';
 import avatar from '../../assets/avatar.webp';
+import avatarPng from '../../assets/avatar.png';
 
 export const Home = (props: RouteComponentProps) => {
     return <div className={styles.home_container}>
@@ -16,7 +17,10 @@ export const Home = (props: RouteComponentProps) => {
             </span>
         </div>
         <div className={styles.avatar_container}>
-            <img className={styles.avatar_img} src={avatar} alt="avatar" />
+            <picture className={styles.avatar_img} >
+                <source srcSet={avatar} type="image/webp" />
+                <img src={avatarPng} alt="avatar" />
+            </picture>
         </div>
     </div>;
 }
