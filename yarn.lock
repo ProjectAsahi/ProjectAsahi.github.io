@@ -904,10 +904,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@crello/react-lottie@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@crello/react-lottie/-/react-lottie-0.0.7.tgz#98747bb35cc21e91dec9c0571c9d17022a4d76ba"
-  integrity sha512-1O3R/fFuScZxTwMyj8qq93qkMjp/FuwnEYHmzAC60YDaSGYpBkg8OdheF/1OCB0cgnyDKiUmco6Wxn2EaF7KkQ==
+"@crello/react-lottie@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@crello/react-lottie/-/react-lottie-0.0.9.tgz#919567c8e06a7e0d12029f33b4fec2bdf2b7f6b4"
+  integrity sha512-dkAS/Nc3luAnuXg3OG4p5EXKb6vl/jmHyn7St7a+SN+WWX1sq1Gx7T2bU/sYDxn8SSUKn/R+37LwwxcQD7SU3A==
   dependencies:
     lottie-web "5.5.9"
 
