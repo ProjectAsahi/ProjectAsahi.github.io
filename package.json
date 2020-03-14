@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@crello/react-lottie": "^0.0.7",
+    "@crello/react-lottie": "^0.0.9",
     "@reach/router": "^1.3.3",
     "i18next": "^19.3.2",
     "i18next-browser-languagedetector": "^4.0.2",
