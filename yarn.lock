@@ -6532,10 +6532,10 @@ lottie-web@5.5.9:
   resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.5.9.tgz#f8775e8c36dfada428f9acea826ab674750419a8"
   integrity sha512-3Zdxnuyi6WXnMj+0ZfwDd17EXCM87Hcbhd+sVFq6EPGfkVoGzoIkZt9OafcgXw4mzjyILOkPDLaBumrgGKoCaw==
 
-lottie-web@^5.6.6:
-  version "5.6.6"
-  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.6.6.tgz#106fa3dc54337588517591b2e3e348248c6a3f1b"
-  integrity sha512-N2c5+VjWFFEv8AQIDohFQaFiPudcSTSKE6WrMmUqtjc+/tQWe23eTu7XHqzXuAf7HDQclHhBorDeSelPNaYiHQ==
+lottie-web@^5.6.7:
+  version "5.6.7"
+  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.6.7.tgz#8d738fbc615f7bef553014474f0426fcdd2128e7"
+  integrity sha512-ckdo2Myr4iv0nZ+ENwAN3NIsL6QsNLDWW1l52/rjpsDOVFO4iSVNgupYZXWrvsNcLWofoS9oeP8HgX7AGQY8DQ==
 
 lower-case@^2.0.1:
   version "2.0.1"
