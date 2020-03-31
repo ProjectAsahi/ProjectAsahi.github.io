@@ -1,17 +1,24 @@
 body {
   margin: 0;
-  font-family: 'Noto Sans SC', sans-serif;;
+  font-family: 'Noto Sans SC', sans-serif;
+  ;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-html, 
-body {
-    height: 100%;
+
+html, body {
+  height: 100%;
 }
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
 #root {
   height: 100%;
+}
+
+select {
+  background: transparent;
+  text-align-last: center;
 }

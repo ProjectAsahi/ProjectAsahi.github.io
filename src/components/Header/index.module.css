@@ -11,11 +11,20 @@
     font-size: 2em;
 }
 
+.external_media_container {
+    display: flex;
+    padding-top: 3em;
+    flex-direction: column;
+    float: right;
+}
+
 .external_media_container>:first-child {
+}
+
+.external_media_container>* {
     align-items: flex-end;
     float: right;
     margin-right: -2rem;
-    margin-top: 3rem;
 }
 
 .menu_container {
@@ -28,6 +37,10 @@
     text-decoration: none;
     color: #ff3fb9;
     font-size: x-large;
+}
+
+.menu_content > select option {
+  background: #0080ff;
 }
 
 .verticel_menu {

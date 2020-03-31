@@ -1,0 +1,35 @@
+{
+    "gender": "Gender",
+    "male": "♂",
+    "birthday": "Birthday",
+    "constellation": "Constellation",
+    "interest": "Interest",
+    "producer": "Producer",
+    "project_assistant": "Project Assistant",
+    "character_design": "Character Design",
+    "3d_model": "3D Model",
+    "swimsuit": "Swimsuit",
+    "language_reference_start": "\"",
+    "asahi": {
+        "name": "Asahi Takagaki",
+        "name_ori": "高垣朝陽",
+        "intro": "My name is Asahi\nI'm a boy!",
+        "artist": "Artist",
+        "summary": "A sunshine \"girl\" who likes to wear sailor clothes, but \"her\" real identity is a boy, and he wears women's clothing just because he likes cute clothes. His hair is real and is well maintained. He is very confident in his ponytail. Working in a maid cafe for its cute clothes, and he is very popular in the cafe.\nSeems to like a character called Asahi in the game.",
+        "data": {
+            "birthday": "July 10",
+            "constellation": "Cancer",
+            "interest": "Part-time Maid Cafe",
+            "row1": {
+                "title": "Favorite Food",
+                "value": "Macarons and other sweets!"
+            },
+            "row2": {
+                "title": "Favorite Animal",
+                "value": "Bear, cat!"
+            },
+            "gamming": "In Game",
+            "living": "Café Live"
+        }
+    }
+}

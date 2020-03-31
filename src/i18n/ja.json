@@ -1,0 +1,35 @@
+{
+    "gender": "性別",
+    "male": "♂",
+    "birthday": "誕生日",
+    "constellation": "星座",
+    "interest": "趣味",
+    "producer": "企画",
+    "project_assistant": "企画協力",
+    "character_design": "キャラデザ",
+    "3d_model": "3Dモデル",
+    "swimsuit": "水着",
+    "language_reference_start": "「",
+    "asahi": {
+        "name": "高垣朝陽",
+        "name_ori": "高垣朝陽",
+        "intro": "朝陽です\n私、男の娘です！",
+        "artist": "原画",
+        "summary": "見た目はセーラー服が好きなサンシャインガールですが、本当は男の娘です！可愛い服が好きという理由で女装を着ています。髪は本物で、とてもキレイです。ポニーテールには自信があります。服が可愛いとゆう理由でとあるメイド喫茶店で働いています、とても人気があります。\nとあるゲームの中の朝日がとても気に入りらしい。",
+        "data": {
+            "birthday": "7月10日",
+            "constellation": "蟹座",
+            "interest": "メイド喫茶店のバイト",
+            "row1": {
+                "title": "好きな食べ物",
+                "value": "マカロンと甘いもの"
+            },
+            "row2": {
+                "title": "好きな動物",
+                "value": "クマと猫ちゃん！"
+            },
+            "gamming": "ゲー中",
+            "living": "ミニライブ"
+        }
+    }
+}

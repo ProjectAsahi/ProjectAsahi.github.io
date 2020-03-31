@@ -3,17 +3,20 @@ import { RouteComponentProps } from "@reach/router";
 import styles from './index.module.css';
 import avatar from '../../assets/avatar.webp';
 import avatarPng from '../../assets/avatar.png';
+import { FormattedMessage } from "react-intl";
 
 export const Home = (props: RouteComponentProps) => {
     return <div className={styles.home_container}>
         <div className={styles.home_card}>
             <span style={{ fontSize: '2em' }}>
-                “
+                <FormattedMessage
+                    id="language_reference_start"
+                />
             </span>
-            <span>
-                我叫朝陽，高垣朝陽
-                <br />
-                是男孩子噢！
+            <span style={{whiteSpace: 'pre-line'}}>
+                <FormattedMessage
+                    id="asahi.intro"
+                />
             </span>
         </div>
         <div className={styles.avatar_container}>

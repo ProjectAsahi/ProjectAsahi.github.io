@@ -1,0 +1,35 @@
+{
+    "gender": "性别",
+    "male": "♂",
+    "birthday": "生日",
+    "constellation": "星座",
+    "interest": "兴趣",
+    "producer": "企划",
+    "project_assistant": "企划协力",
+    "character_design": "人设图",
+    "3d_model": "3D模型",
+    "swimsuit": "泳装",
+    "language_reference_start": "“",
+    "asahi": {
+        "name": "高垣朝陽",
+        "name_ori": "高垣朝陽",
+        "intro": "我叫朝陽，高垣朝陽\n是男孩子噢！",
+        "artist": "原画",
+        "summary": "喜欢穿水手服的阳光少女，可是真实身份却是男孩子，只因为喜欢可爱的衣服而穿上了女装。头发是真发而且发质非常好，对自己的单马尾非常自信。出于服装可爱的理由在一所女仆咖啡厅打工，在店里很受欢迎。\n似乎很喜欢一个游戏里叫朝日的角色。",
+        "data": {
+            "birthday": "7月10日",
+            "constellation": "巨蟹座",
+            "interest": "女仆咖啡厅的打工",
+            "row1": {
+                "title": "喜欢的食物",
+                "value": "马卡龙和其他甜食！"
+            },
+            "row2": {
+                "title": "喜欢的动物",
+                "value": "小熊、猫猫！"
+            },
+            "gamming": "游戏中",
+            "living": "咖啡厅Live"
+        }
+    }
+}

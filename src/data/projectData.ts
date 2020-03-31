@@ -1,18 +1,18 @@
 export const projectData = {
     staff: [
         {
-            title: "企划 & 3D模型",
+            title: "producer",
             name: "Tlaster",
             color: "#0080ff"
         },
         {
-            title: "原画",
+            title: "asahi.artist",
             name: "-salz-",
             link: "https://www.pixiv.net/users/1788244",
             color: "#ff3fb9"
         },
         {
-            title: "企划协力",
+            title: "project_assistant",
             name: "零火",
             link: "https://weibo.com/zeroblaze",
             color: "#0080ff"
