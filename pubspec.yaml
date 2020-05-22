@@ -1,0 +1,21 @@
+name: projectasahi
+description: ProjectAsahi Home Page
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.3
+  flutter_hooks: ^0.9.0
+  simple_animations: ^2.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: false
+  assets:
+    - assets/

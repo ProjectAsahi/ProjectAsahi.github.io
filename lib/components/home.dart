@@ -1,0 +1,158 @@
+import 'dart:math';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:projectasahi/components/fade_in.dart';
+import 'package:projectasahi/components/triangle_painter.dart';
+import 'package:projectasahi/extensions/hex_color.dart';
+import 'package:projectasahi/extensions/hover_extensions.dart';
+
+final Home = () => HookBuilder(builder: (context) {
+      final size = MediaQuery.of(context).size;
+      final isMobile = size.width <= 1024;
+      return Stack(
+        children: [
+          Flex(
+            direction: isMobile ? Axis.vertical : Axis.horizontal,
+            children: [
+              _CharacterBoard(
+                  image: AssetImage('avatar.webp'),
+                  color: Colors.orange,
+                  isMobile: isMobile,
+                  showDelay: 0.33,
+                  translateY: -130.0),
+              _CharacterBoard(
+                  image: AssetImage('avatar.webp'),
+                  color: Colors.blueGrey,
+                  isMobile: isMobile,
+                  showDelay: 1.33,
+                  translateY: 130.0),
+              _CharacterBoard(
+                  image: AssetImage('avatar.webp'),
+                  color: Colors.red,
+                  isMobile: isMobile,
+                  showDelay: 1.66,
+                  translateY: -130.0),
+              _CharacterBoard(
+                  image: AssetImage('avatar.webp'),
+                  color: Colors.purple,
+                  isMobile: isMobile,
+                  showDelay: 0.66,
+                  translateY: 130.0),
+            ],
+          ),
+          // Logo(),
+        ],
+      );
+    });
+
+final Logo = () => HookBuilder(builder: (context) {
+      const triangleSide = 150.0;
+      final triangleOffset = triangleSide * (sqrt(3) / 2) / 2;
+      final animationController =
+          useAnimationController(duration: Duration(milliseconds: 1000));
+      useEffect(() {
+        animationController.forward();
+      });
+      return Stack(
+        children: [
+          Center(
+            child: Transform.translate(
+              offset: Offset(0, 0),
+              child: RotationTransition(
+                turns: Tween<double>(begin: 0, end: 0)
+                    .animate(new CurvedAnimation(
+                        parent: animationController,
+                        curve: Curves.easeInOutCirc)),
+                child: CustomPaint(
+                  size: Size(triangleSide, triangleOffset * 2),
+                  painter: TrianglePainter(
+                      side: triangleSide,
+                      strokeColor: HexColor.fromHex("#ff3fb9")),
+                ),
+              ),
+            ),
+          ),
+          Center(
+            child: Transform.translate(
+              offset: Offset(-triangleOffset, 0),
+              child: RotationTransition(
+                turns: AlwaysStoppedAnimation(120 / 360),
+                child: CustomPaint(
+                  painter: TrianglePainter(
+                      side: triangleSide,
+                      strokeColor: HexColor.fromHex("#0080ff")),
+                ),
+              ),
+            ),
+          ),
+        ],
+      );
+    });
+
+final _CharacterBoard = (
+        {ImageProvider image,
+        double showDelay,
+        double translateY,
+        Color color,
+        Function onTab,
+        bool isMobile = false}) =>
+    HookBuilder(builder: (context) {
+      final isPointerOver = useState(false);
+      // final animationController =
+      //     useAnimationController(duration: Duration(milliseconds: 250));
+      // final animation = useAnimation(IntTween(begin: 100, end: 150).animate(
+      //     new CurvedAnimation(
+      //         parent: animationController, curve: Curves.easeInOutCirc)));
+      // useEffect(() {
+      //   if (isPointerOver.value) {
+      //     animationController.forward();
+      //   } else {
+      //     animationController.reverse();
+      //   }
+      // }, [isPointerOver.value]);
+      return Expanded(
+        flex: 100,
+        child: MouseRegion(
+          onEnter: (_) => isPointerOver.value = true,
+          onExit: (_) => isPointerOver.value = false,
+          child: GestureDetector(
+            onTap: onTab?.call(),
+            child: Container(
+              child: Stack(
+                children: [
+                  Container(color: color),
+                  FadeIn(
+                    delay: showDelay,
+                    translateX: isMobile ? translateY : 0.0,
+                    translateY: isMobile ? 0.0 : translateY,
+                    child: FractionallySizedBox(
+                      alignment:
+                          isMobile ? Alignment.topCenter : Alignment(-0.66, -1),
+                      widthFactor: isMobile ? 1 : 1.3,
+                      child: Image(
+                        image: image,
+                        alignment: isMobile
+                            ? Alignment(0, -0.80)
+                            : Alignment(-0.66, -1),
+                        fit: BoxFit.cover,
+                      ).showCursorOnHover,
+                    ),
+                  ),
+                  AnimatedOpacity(
+                    opacity: isPointerOver.value ? 0.0 : 1.0,
+                    child: Container(
+                      color: color.withOpacity(0.5),
+                    ),
+                    curve: Curves.easeInOutCirc,
+                    duration: Duration(milliseconds: 250),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    });
