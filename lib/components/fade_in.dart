@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/widgets.dart';
 import 'package:simple_animations/simple_animations.dart';
 import 'package:supercharged/supercharged.dart';
@@ -14,7 +12,11 @@ class FadeIn extends StatelessWidget {
   final double opacity;
 
   FadeIn(
-      {this.delay, this.child, this.translateY = 0.0, this.translateX = 0.0, this.opacity = 0.0});
+      {this.delay = 0.0,
+      this.child,
+      this.translateY = 0.0,
+      this.translateX = 0.0,
+      this.opacity = 0.0});
 
   @override
   Widget build(BuildContext context) {
