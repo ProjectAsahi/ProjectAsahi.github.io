@@ -19,25 +19,25 @@ final Home = () => HookBuilder(builder: (context) {
             children: [
               _CharacterBoard(
                   image: AssetImage('avatar.webp'),
-                  color: Colors.orange,
+                  color: Colors.greenAccent,
                   isMobile: isMobile,
                   showDelay: 0.33,
                   translateY: -130.0),
               _CharacterBoard(
                   image: AssetImage('avatar.webp'),
-                  color: Colors.blueGrey,
+                  color: Colors.grey,
                   isMobile: isMobile,
                   showDelay: 1.33,
                   translateY: 130.0),
               _CharacterBoard(
                   image: AssetImage('avatar.webp'),
-                  color: Colors.red,
+                  color: Colors.redAccent,
                   isMobile: isMobile,
                   showDelay: 1.66,
                   translateY: -130.0),
               _CharacterBoard(
                   image: AssetImage('avatar.webp'),
-                  color: Colors.purple,
+                  color: Colors.purpleAccent,
                   isMobile: isMobile,
                   showDelay: 0.66,
                   translateY: 130.0),
@@ -62,8 +62,8 @@ final Logo = () => HookBuilder(builder: (context) {
             child: Transform.translate(
               offset: Offset(0, 0),
               child: RotationTransition(
-                turns: Tween<double>(begin: 0, end: 0)
-                    .animate(new CurvedAnimation(
+                turns: Tween<double>(begin: 0, end: 0).animate(
+                    new CurvedAnimation(
                         parent: animationController,
                         curve: Curves.easeInOutCirc)),
                 child: CustomPaint(
@@ -101,6 +101,7 @@ final _CharacterBoard = (
         bool isMobile = false}) =>
     HookBuilder(builder: (context) {
       final isPointerOver = useState(false);
+      final size = MediaQuery.of(context).size;
       // final animationController =
       //     useAnimationController(duration: Duration(milliseconds: 250));
       // final animation = useAnimation(IntTween(begin: 100, end: 150).animate(
@@ -123,14 +124,20 @@ final _CharacterBoard = (
             child: Container(
               child: Stack(
                 children: [
-                  Container(color: color),
                   FadeIn(
-                    delay: showDelay,
+                    delay: 0.0,
+                    opacity: 1.0,
+                    translateY: isMobile ? 0 : translateY > 0 ? size.height : -size.height,
+                    translateX: isMobile ? translateY > 0 ? size.width : -size.width : 0,
+                    child: Container(color: color),
+                  ),
+                  FadeIn(
+                    delay: showDelay + 0.5,
                     translateX: isMobile ? translateY : 0.0,
                     translateY: isMobile ? 0.0 : translateY,
                     child: FractionallySizedBox(
                       alignment:
-                          isMobile ? Alignment.topCenter : Alignment(-0.66, -1),
+                          isMobile ? Alignment.topCenter : Alignment(-1, -1),
                       widthFactor: isMobile ? 1 : 1.3,
                       child: Image(
                         image: image,
@@ -141,14 +148,18 @@ final _CharacterBoard = (
                       ).showCursorOnHover,
                     ),
                   ),
-                  AnimatedOpacity(
-                    opacity: isPointerOver.value ? 0.0 : 1.0,
-                    child: Container(
-                      color: color.withOpacity(0.5),
+                  FadeIn(
+                    delay: 5.0,
+                    opacity: 0.0,
+                    child: AnimatedOpacity(
+                      opacity: isPointerOver.value ? 0.0 : 1.0,
+                      child: Container(
+                        color: color.withOpacity(0.5),
+                      ),
+                      curve: Curves.easeInOutCirc,
+                      duration: Duration(milliseconds: 250),
                     ),
-                    curve: Curves.easeInOutCirc,
-                    duration: Duration(milliseconds: 250),
-                  )
+                  ),
                 ],
               ),
             ),

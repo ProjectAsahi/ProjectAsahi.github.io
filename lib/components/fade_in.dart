@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/widgets.dart';
 import 'package:simple_animations/simple_animations.dart';
 import 'package:supercharged/supercharged.dart';
@@ -9,13 +11,15 @@ class FadeIn extends StatelessWidget {
   final Widget child;
   final double translateY;
   final double translateX;
+  final double opacity;
 
-  FadeIn({this.delay, this.child, this.translateY, this.translateX});
+  FadeIn(
+      {this.delay, this.child, this.translateY = 0.0, this.translateX = 0.0, this.opacity = 0.0});
 
   @override
   Widget build(BuildContext context) {
     final tween = MultiTween<AniProps>()
-      ..add(AniProps.opacity, 0.0.tweenTo(1.0), 500.milliseconds)
+      ..add(AniProps.opacity, opacity.tweenTo(1.0), 500.milliseconds)
       ..add(AniProps.translateY, translateY.tweenTo(0.0), 500.milliseconds,
           Curves.easeInOutCirc)
       ..add(AniProps.translateX, translateX.tweenTo(0.0), 500.milliseconds,
@@ -29,7 +33,9 @@ class FadeIn extends StatelessWidget {
       builder: (context, child, value) => Opacity(
         opacity: value.get(AniProps.opacity),
         child: Transform.translate(
-            offset: Offset(value.get(AniProps.translateX), value.get(AniProps.translateY)), child: child),
+            offset: Offset(
+                value.get(AniProps.translateX), value.get(AniProps.translateY)),
+            child: child),
       ),
     );
   }
