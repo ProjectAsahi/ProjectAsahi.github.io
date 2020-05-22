@@ -9,11 +9,6 @@ class DetailArguments {
 
 final Detail = ({String name}) => HookBuilder(builder: (context) {
       return Stack(
-        children: [
-          Hero(
-            tag: 'characterImage',
-            child: Image.asset('avatar.webp'),
-          )
-        ],
+        children: [Image.asset('avatar.webp')],
       );
     });
