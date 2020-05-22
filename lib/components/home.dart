@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:projectasahi/components/detail.dart';
 import 'package:projectasahi/components/fade_in.dart';
 import 'package:projectasahi/components/triangle_painter.dart';
 import 'package:projectasahi/extensions/hex_color.dart';
@@ -19,24 +20,32 @@ final Home = () => HookBuilder(builder: (context) {
             children: [
               _CharacterBoard(
                   image: AssetImage('avatar.webp'),
+                  onTab: () => Navigator.pushNamed(context, "/detail",
+                      arguments: DetailArguments("asahi")),
                   color: Colors.greenAccent,
                   isMobile: isMobile,
                   showDelay: 0.33,
                   translateY: -130.0),
               _CharacterBoard(
                   image: AssetImage('avatar.webp'),
+                  onTab: () => Navigator.pushNamed(context, "/detail",
+                      arguments: DetailArguments("asahi")),
                   color: Colors.grey,
                   isMobile: isMobile,
                   showDelay: 1.33,
                   translateY: 130.0),
               _CharacterBoard(
                   image: AssetImage('avatar.webp'),
+                  onTab: () => Navigator.pushNamed(context, "/detail",
+                      arguments: DetailArguments("asahi")),
                   color: Colors.redAccent,
                   isMobile: isMobile,
                   showDelay: 1.66,
                   translateY: -130.0),
               _CharacterBoard(
                   image: AssetImage('avatar.webp'),
+                  onTab: () => Navigator.pushNamed(context, "/detail",
+                      arguments: DetailArguments("asahi")),
                   color: Colors.purpleAccent,
                   isMobile: isMobile,
                   showDelay: 0.66,
@@ -59,15 +68,11 @@ final Logo = () => HookBuilder(builder: (context) {
       return Stack(
         children: [
           Center(
-            child: Transform.translate(
-              offset: Offset(0, 0),
-              child: RotationTransition(
-                turns: Tween<double>(begin: 0, end: 0).animate(
-                    new CurvedAnimation(
-                        parent: animationController,
-                        curve: Curves.easeInOutCirc)),
+            child: Container(
+              color: Colors.indigo,
+              child: Transform.translate(
+                offset: Offset(0, 0),
                 child: CustomPaint(
-                  size: Size(triangleSide, triangleOffset * 2),
                   painter: TrianglePainter(
                       side: triangleSide,
                       strokeColor: HexColor.fromHex("#ff3fb9")),
@@ -97,7 +102,7 @@ final _CharacterBoard = (
         double showDelay,
         double translateY,
         Color color,
-        Function onTab,
+        GestureTapCallback onTab,
         bool isMobile = false}) =>
     HookBuilder(builder: (context) {
       final isPointerOver = useState(false);
@@ -120,15 +125,19 @@ final _CharacterBoard = (
           onEnter: (_) => isPointerOver.value = true,
           onExit: (_) => isPointerOver.value = false,
           child: GestureDetector(
-            onTap: onTab?.call(),
+            onTap: onTab,
             child: Container(
               child: Stack(
                 children: [
                   FadeIn(
                     delay: 0.0,
                     opacity: 1.0,
-                    translateY: isMobile ? 0 : translateY > 0 ? size.height : -size.height,
-                    translateX: isMobile ? translateY > 0 ? size.width : -size.width : 0,
+                    translateY: isMobile
+                        ? 0
+                        : translateY > 0 ? size.height : -size.height,
+                    translateX: isMobile
+                        ? translateY > 0 ? size.width : -size.width
+                        : 0,
                     child: Container(color: color),
                   ),
                   FadeIn(

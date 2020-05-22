@@ -1,21 +1,15 @@
 import 'package:flutter/widgets.dart';
+import 'package:projectasahi/components/detail.dart';
 
 import 'components/home.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
+    case '/detail':
+      final DetailArguments args = settings.arguments;
+      return _getPageRoute(Detail(name: args.name), settings);
     default:
       return _getPageRoute(Home(), settings);
-    // case HomeRoute:
-    //   return _getPageRoute(HomeView(), settings);
-    // case AboutRoute:
-    //   return _getPageRoute(AboutView(), settings);
-    // case EpisodesRoute:
-    //   return _getPageRoute(EpisodesView(), settings);
-    // case EpisodeDetailsRoute:
-    //   return _getPageRoute(EpisodeDetails(), settings);
-    // default:
-    //   return _getPageRoute(HomeView(), settings);
   }
 }
 
