@@ -19,7 +19,7 @@ class PlatformAwareAssetImage extends StatelessWidget {
   Widget build(BuildContext context) {
     if (kIsWeb) {
       return Image.network(
-        'assets/${package == null ? '' : 'packages/$package/'}$asset',
+        'assets/assets/${package == null ? '' : 'packages/$package/'}$asset',
         fit: fit,
         alignment: alignment,
       );
