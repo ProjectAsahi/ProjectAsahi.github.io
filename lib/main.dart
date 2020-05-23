@@ -9,6 +9,7 @@ class RootView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WidgetsApp(
+      title: "ProjectAsahi",
       // navigatorObservers: [HeroController(createRectTween: _createRectTween)],
       onGenerateRoute: generateRoute,
       textStyle: const TextStyle(color: Colors.black, fontSize: 16),
