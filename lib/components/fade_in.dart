@@ -10,10 +10,14 @@ class FadeIn extends StatelessWidget {
   final double translateY;
   final double translateX;
   final double opacity;
+  final int duration;
+  final Cubic curves;
 
   FadeIn(
       {this.delay = 0.0,
       this.child,
+      this.duration = 500,
+      this.curves = Curves.easeInOutCirc,
       this.translateY = 0.0,
       this.translateX = 0.0,
       this.opacity = 0.0});
@@ -21,11 +25,12 @@ class FadeIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tween = MultiTween<AniProps>()
-      ..add(AniProps.opacity, opacity.tweenTo(1.0), 500.milliseconds)
-      ..add(AniProps.translateY, translateY.tweenTo(0.0), 500.milliseconds,
-          Curves.easeInOutCirc)
-      ..add(AniProps.translateX, translateX.tweenTo(0.0), 500.milliseconds,
-          Curves.easeInOutCirc);
+      ..add(
+          AniProps.opacity, opacity.tweenTo(1.0), duration.milliseconds, curves)
+      ..add(AniProps.translateY, translateY.tweenTo(0.0), duration.milliseconds,
+          curves)
+      ..add(AniProps.translateX, translateX.tweenTo(0.0), duration.milliseconds,
+          curves);
 
     return PlayAnimation(
       delay: Duration(milliseconds: (300 * delay).round()),
