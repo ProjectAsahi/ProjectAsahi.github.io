@@ -11,7 +11,7 @@ class RootView extends StatelessWidget {
     return WidgetsApp(
       // navigatorObservers: [HeroController(createRectTween: _createRectTween)],
       onGenerateRoute: generateRoute,
-      textStyle: const TextStyle(color: Colors.black),
+      textStyle: const TextStyle(color: Colors.black, fontSize: 16),
       initialRoute: "/",
       color: Colors.blue,
     );

@@ -5,22 +5,28 @@ import 'package:projectasahi/components/fade_in.dart';
 import 'package:projectasahi/components/logo.dart';
 import 'package:projectasahi/data/character_data.dart';
 import 'package:projectasahi/extensions/iterable.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final isMobile = size.width <= 1024;
+    final mediaQuery = MediaQuery.of(context);
+    final size = mediaQuery.size;
+    final isMobile =
+        size.width < 1024 || mediaQuery.orientation == Orientation.portrait;
     final charastersItems = characters
         .mapIndex(
           (value, index) => Expanded(
             child: _CharacterBoard(
                 image: AssetImage(value.main_visual),
-                onTab: () =>
-                    Navigator.pushNamed(context, "/character/" + value.name_en),
+                onTab: () {
+                  if (value.enabled) {
+                    Navigator.pushNamed(context, "/character/" + value.name_en);
+                  }
+                },
                 color: value.color,
                 isMobile: isMobile,
-                showDelay: 1.5,
+                showDelay: 2,
                 translateY: index % 2 == 0 ? -130.0 : 130.0),
           ),
         )
@@ -53,7 +59,7 @@ class _Banner extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return FadeIn(
-      delay: 3.8,
+      delay: 3,
       curves: Curves.easeOutExpo,
       duration: 1000,
       opacity: 1,
@@ -84,11 +90,25 @@ class _Banner extends StatelessWidget {
                     Positioned(
                       right: 0,
                       bottom: 0,
-                      child: Column(
+                      child: Row(
                         children: [
                           IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.info_outline),
+                            onPressed: () {
+                              launch("https://space.bilibili.com/146407");
+                            },
+                            icon: Image.asset('bilibili_logo_colored.webp'),
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              launch("https://weibo.com/AsahiTakagaki");
+                            },
+                            icon: Image.asset('weibo_logo_colored.webp'),
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/about');
+                            },
+                            icon: Image.asset('helo_icon.webp'),
                           ),
                         ],
                       ),
@@ -127,6 +147,7 @@ final _CharacterBoard = (
                 children: [
                   Container(color: color),
                   FadeIn(
+                    curves: Curves.easeOutExpo,
                     delay: showDelay + 0.5,
                     translateX: isMobile ? translateY : 0.0,
                     translateY: isMobile ? 0.0 : translateY,
@@ -134,21 +155,19 @@ final _CharacterBoard = (
                       alignment:
                           isMobile ? Alignment.topCenter : Alignment(-1, -1),
                       widthFactor: isMobile ? 1 : 1.3,
-                      child: Hero(
-                        tag: 'chimg',
-                        child: Image(
-                          image: image,
-                          alignment: isMobile
-                              ? Alignment(0, -0.80)
-                              : Alignment(-0.66, -1),
-                          fit: BoxFit.cover,
-                        ),
+                      child: Image(
+                        image: image,
+                        alignment: isMobile
+                            ? Alignment(0, -0.80)
+                            : Alignment(-0.66, -1),
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
                   FadeIn(
-                    delay: 5.0,
+                    delay: 3.0,
                     opacity: 0.0,
+                    duration: 1000,
                     child: AnimatedOpacity(
                       opacity: isPointerOver.value ? 0.0 : 1.0,
                       child: Container(

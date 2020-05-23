@@ -1,8 +1,9 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/widgets.dart';
+import 'package:projectasahi/components/about.dart';
 import 'package:projectasahi/components/character.dart';
-
-import 'components/home.dart';
+import 'package:projectasahi/components/home.dart';
+import 'package:projectasahi/components/image_dialog.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   Router router = new Router();
@@ -10,6 +11,16 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
     return Character(params["id"][0]);
   }), transitionType: TransitionType.cupertino);
+  router.define("/assets", handler:
+      Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+    return ImageDialog(
+      name: Uri.decodeComponent(params["name"]?.first),
+    );
+  }), transitionType: TransitionType.cupertinoFullScreenDialog);
+  router.define("/about", handler:
+      Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+    return About();
+  }), transitionType: TransitionType.cupertinoFullScreenDialog);
   router.define('/', handler:
       Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
     return Home();
