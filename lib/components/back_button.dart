@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:projectasahi/extensions/hover_extensions.dart';
 
 class BackButtonEx extends StatelessWidget {
   final Function onTap;
@@ -31,7 +32,7 @@ class BackButtonEx extends StatelessWidget {
                 color: iconColor,
               ),
             ),
-          ),
+          ).showCursorOnHover,
         ),
       ),
     );

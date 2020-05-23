@@ -5,6 +5,7 @@ import 'package:projectasahi/components/fade_in.dart';
 import 'package:projectasahi/components/logo.dart';
 import 'package:projectasahi/data/character_data.dart';
 import 'package:projectasahi/extensions/iterable.dart';
+import 'package:projectasahi/extensions/hover_extensions.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatelessWidget {
@@ -161,7 +162,7 @@ final _CharacterBoard = (
                             ? Alignment(0, -0.80)
                             : Alignment(-0.66, -1),
                         fit: BoxFit.cover,
-                      ),
+                      ).showCursorOnHover,
                     ),
                   ),
                   FadeIn(
