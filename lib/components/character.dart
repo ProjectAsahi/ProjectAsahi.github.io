@@ -54,7 +54,7 @@ final Character = (String name) => HookBuilder(builder: (context) {
         Text(
           character.name,
           style: TextStyle(
-            color: character.color,
+            color: character.text_color,
             fontSize: 60,
             fontWeight: FontWeight.bold,
           ),
@@ -73,7 +73,7 @@ final Character = (String name) => HookBuilder(builder: (context) {
                     children: [
                       Text(
                         e.key,
-                        style: TextStyle(color: character.color),
+                        style: TextStyle(color: character.text_color),
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: 32),

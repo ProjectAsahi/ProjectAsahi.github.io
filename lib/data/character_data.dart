@@ -6,6 +6,7 @@ class CharacterData {
   final String name_en;
   final String name_ori;
   final Color color;
+  final Color text_color;
   final bool enabled;
   final String gender;
   final String intro;
@@ -15,12 +16,13 @@ class CharacterData {
   final String main_visual;
   final List<String> sub_visuals;
 
-  const CharacterData( 
+  const CharacterData(
       {this.name = "",
       this.name_ori = "",
       this.name_en = "",
       this.gender = "",
       this.intro = "",
+      this.text_color = Colors.black,
       this.color = Colors.white,
       this.enabled = true,
       this.summary = "",
@@ -55,6 +57,7 @@ const characters = [
       "asahi/swimming.webp",
     ],
     color: Colors.greenAccent,
+    text_color: Colors.green,
   ),
   CharacterData(
     name: "高垣朝陽",
