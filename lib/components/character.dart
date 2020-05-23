@@ -1,3 +1,4 @@
+import 'package:projectasahi/components/asset_image.dart';
 import 'package:projectasahi/components/back_button.dart';
 import 'package:projectasahi/components/fade_in.dart';
 import 'package:projectasahi/components/slide_in.dart';
@@ -41,8 +42,8 @@ final Character = (String name) => HookBuilder(builder: (context) {
                 },
                 child: Padding(
                   padding: EdgeInsets.all(8),
-                  child: Image(
-                    image: AssetImage(value),
+                  child: PlatformAwareAssetImage(
+                    asset: value,
                   ),
                 ),
               ),
@@ -138,8 +139,8 @@ final Character = (String name) => HookBuilder(builder: (context) {
                                   delay: 2,
                                   opacity: 0,
                                   translateX: 50,
-                                  child: Image(
-                                    image: AssetImage(character.main_visual),
+                                  child: PlatformAwareAssetImage(
+                                    asset: character.main_visual,
                                   ),
                                 ),
                               ),
@@ -163,8 +164,8 @@ final Character = (String name) => HookBuilder(builder: (context) {
                         translateX: 100,
                         child: Padding(
                           padding: EdgeInsets.only(top: 30, bottom: 30),
-                          child: Image(
-                            image: AssetImage(character.main_visual),
+                          child: PlatformAwareAssetImage(
+                            asset: character.main_visual,
                           ),
                         ),
                       ),

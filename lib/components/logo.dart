@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/widgets.dart';
+import 'package:projectasahi/components/asset_image.dart';
 
 class Logo extends StatelessWidget {
   @override
@@ -9,7 +10,9 @@ class Logo extends StatelessWidget {
       width: min(size.width, 600),
       child: AspectRatio(
         aspectRatio: 1100.0 / 250.0,
-        child: Image.asset('projectasahi_logo.webp'),
+        child: PlatformAwareAssetImage(
+          asset: "projectasahi_logo.webp",
+        ),
       ),
     );
   }

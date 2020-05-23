@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:projectasahi/components/asset_image.dart';
 import 'package:projectasahi/components/back_button.dart';
 import 'package:projectasahi/components/fade_in.dart';
 import 'package:projectasahi/extensions/iterable.dart';
@@ -29,7 +30,9 @@ class About extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset('projectasahi_logo.webp'),
+                    PlatformAwareAssetImage(
+                      asset: "projectasahi_logo.webp",
+                    ),
                     SizedBox(height: 50),
                     FadeIn(
                       delay: 1,
