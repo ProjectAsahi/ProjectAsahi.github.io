@@ -5,6 +5,7 @@ import 'package:projectasahi/components/slide_in.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter/material.dart';
 import 'package:projectasahi/data/character_data.dart';
+import 'package:projectasahi/data/project_data.dart';
 import 'package:projectasahi/extensions/iterable.dart';
 
 final Character = (String name) => HookBuilder(builder: (context) {
@@ -127,7 +128,12 @@ final Character = (String name) => HookBuilder(builder: (context) {
                       child: SingleChildScrollView(
                         physics: BouncingScrollPhysics(),
                         child: Padding(
-                          padding: EdgeInsets.all(30),
+                          padding: EdgeInsets.only(
+                            top: 80,
+                            left: 30,
+                            right: 30,
+                            bottom: 30,
+                          ),
                           child: Column(
                             children: [
                               Container(
@@ -197,6 +203,20 @@ final Character = (String name) => HookBuilder(builder: (context) {
                       left: 0,
                       top: 0,
                       child: BackButtonEx(
+                        onTap: () {
+                          isPoping.value = true;
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ),
+              !isMobile
+                  ? null
+                  : Positioned(
+                      left: 0,
+                      top: 0,
+                      child: BackButtonEx(
+                        color: accentColor,
+                        iconColor: Colors.white,
                         onTap: () {
                           isPoping.value = true;
                           Navigator.of(context).pop();

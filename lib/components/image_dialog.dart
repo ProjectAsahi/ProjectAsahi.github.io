@@ -27,19 +27,17 @@ class ImageDialog extends StatelessWidget {
             ),
           ),
         ),
-        isMobile
-            ? null
-            : Positioned(
-                left: 0,
-                top: 0,
-                child: BackButtonEx(
-                  color: accentColor,
-                  iconColor: Colors.white,
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-              ),
+        Positioned(
+          left: 0,
+          top: 0,
+          child: BackButtonEx(
+            color: accentColor,
+            iconColor: Colors.white,
+            onTap: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ),
       ].where((element) => element != null).toList(),
     );
   }
