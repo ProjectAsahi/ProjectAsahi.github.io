@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -86,7 +88,10 @@ class _Banner extends StatelessWidget {
                     Center(
                       child: Padding(
                         padding: EdgeInsets.all(30),
-                        child: Logo(),
+                        child: Container(
+                          width: min(size.width, 600),
+                          child: Logo(),
+                        ),
                       ),
                     ),
                     Positioned(
@@ -115,7 +120,7 @@ class _Banner extends StatelessWidget {
                               Navigator.pushNamed(context, '/about');
                             },
                             icon: PlatformAwareAssetImage(
-                              asset: "helo_icon.webp",
+                              asset: "help_icon.webp",
                             ),
                           ),
                         ],
