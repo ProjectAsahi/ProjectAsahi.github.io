@@ -10,14 +10,11 @@ class RootView extends StatelessWidget {
   Widget build(BuildContext context) {
     return WidgetsApp(
       title: "ProjectAsahi",
-      // navigatorObservers: [HeroController(createRectTween: _createRectTween)],
+      navigatorObservers: [HeroController()],
       onGenerateRoute: generateRoute,
       textStyle: const TextStyle(color: Colors.black, fontSize: 16),
       initialRoute: "/",
       color: Colors.blue,
     );
-  }
-  RectTween _createRectTween(Rect begin, Rect end) {
-    return MaterialRectArcTween(begin: begin, end: end);
   }
 }

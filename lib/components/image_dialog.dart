@@ -22,8 +22,11 @@ class ImageDialog extends StatelessWidget {
             backgroundDecoration: BoxDecoration(
               color: Colors.white,
             ),
-            child: PlatformAwareAssetImage(
-              asset: name,
+            child: Hero(
+              tag: name,
+              child: PlatformAwareAssetImage(
+                asset: name,
+              ),
             ),
           ),
         ),

@@ -10,8 +10,11 @@ class Logo extends StatelessWidget {
       width: min(size.width, 600),
       child: AspectRatio(
         aspectRatio: 1100.0 / 250.0,
-        child: PlatformAwareAssetImage(
-          asset: "projectasahi_logo.webp",
+        child: Hero(
+          tag: 'logo',
+          child: PlatformAwareAssetImage(
+            asset: "projectasahi_logo.webp",
+          ),
         ),
       ),
     );

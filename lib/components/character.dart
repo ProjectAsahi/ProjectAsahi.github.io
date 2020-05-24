@@ -43,8 +43,11 @@ final Character = (String name) => HookBuilder(builder: (context) {
                 },
                 child: Padding(
                   padding: EdgeInsets.all(8),
-                  child: PlatformAwareAssetImage(
-                    asset: value,
+                  child: Hero(
+                    tag: value,
+                    child: PlatformAwareAssetImage(
+                      asset: value,
+                    ),
                   ),
                 ),
               ),
