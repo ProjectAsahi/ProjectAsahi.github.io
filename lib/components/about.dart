@@ -1,8 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:projectasahi/components/asset_image.dart';
-import 'package:projectasahi/components/back_button.dart';
 import 'package:projectasahi/components/fade_in.dart';
 import 'package:projectasahi/components/logo.dart';
 import 'package:projectasahi/extensions/iterable.dart';
@@ -18,10 +16,19 @@ class About extends StatelessWidget {
       color: Colors.white,
       child: Stack(
         children: [
-          BackButtonEx(
-            color: accentColor,
-            iconColor: Colors.white,
-            onTap: () => Navigator.of(context).pop(),
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: FlatButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Icon(
+                Icons.keyboard_arrow_up,
+                size: 36,
+              ),
+            ),
           ),
           Center(
             child: Padding(
@@ -51,7 +58,10 @@ class About extends StatelessWidget {
                               FlatButton(
                                 textColor: projectData.producer.color,
                                 onPressed: () {},
-                                child: Text(projectData.producer.name),
+                                child: Text(
+                                  projectData.producer.name,
+                                  style: const TextStyle(fontSize: 20),
+                                ),
                               ),
                             ],
                           ),
@@ -68,6 +78,7 @@ class About extends StatelessWidget {
                                   },
                                   child: Text(
                                     value.name,
+                                    style: const TextStyle(fontSize: 20),
                                   ),
                                 ),
                               ],
@@ -85,6 +96,7 @@ class About extends StatelessWidget {
                                 },
                                 child: Text(
                                   projectData.assitant.name,
+                                  style: const TextStyle(fontSize: 20),
                                 ),
                               ),
                             ],
