@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:projectasahi/components/fade_in.dart';
 import 'package:projectasahi/components/logo.dart';
+import 'package:projectasahi/components/up_button.dart';
 import 'package:projectasahi/extensions/iterable.dart';
 import 'package:projectasahi/data/project_data.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -20,13 +21,13 @@ class About extends StatelessWidget {
             top: 0,
             left: 0,
             right: 0,
-            child: FlatButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Icon(
-                Icons.keyboard_arrow_up,
-                size: 36,
+            child: Center(
+              child: UpButton(
+                color: accentColor,
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+                iconColor: Colors.white,
               ),
             ),
           ),
