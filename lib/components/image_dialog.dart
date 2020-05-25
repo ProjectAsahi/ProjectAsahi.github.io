@@ -15,33 +15,38 @@ class ImageDialog extends StatelessWidget {
     final size = mediaQuery.size;
     final isMobile =
         size.width < 1024 || mediaQuery.orientation == Orientation.portrait;
-    return Stack(
-      children: [
-        Positioned.fill(
-          child: PhotoView.customChild(
-            backgroundDecoration: BoxDecoration(
-              color: Colors.white,
-            ),
-            child: Hero(
-              tag: name,
-              child: PlatformAwareAssetImage(
-                asset: name,
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pop();
+      },
+      child: Stack(
+        children: [
+          Positioned.fill(
+            child: PhotoView.customChild(
+              backgroundDecoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: Hero(
+                tag: name,
+                child: PlatformAwareAssetImage(
+                  asset: name,
+                ),
               ),
             ),
           ),
-        ),
-        Positioned(
-          left: 0,
-          top: 0,
-          child: BackButtonEx(
-            color: accentColor,
-            iconColor: Colors.white,
-            onTap: () {
-              Navigator.of(context).pop();
-            },
+          Positioned(
+            left: 0,
+            top: 0,
+            child: BackButtonEx(
+              color: accentColor,
+              iconColor: Colors.white,
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+            ),
           ),
-        ),
-      ].where((element) => element != null).toList(),
+        ].where((element) => element != null).toList(),
+      ),
     );
   }
 }

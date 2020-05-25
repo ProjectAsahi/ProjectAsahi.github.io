@@ -186,7 +186,7 @@ final _CharacterBoard = (
                       child: Container(
                         color: color.withOpacity(0.5),
                       ),
-                      curve: Curves.easeInOutCirc,
+                      curve: Curves.easeOutExpo,
                       duration: Duration(milliseconds: 250),
                     ),
                   ),
