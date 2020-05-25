@@ -28,7 +28,7 @@ class UpButton extends StatelessWidget {
             child: Material(
               color: Colors.transparent,
               child: Icon(
-                Icons.keyboard_arrow_up,
+                Icons.keyboard_arrow_down,
                 color: iconColor,
                 size: 32,
               ),
