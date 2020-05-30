@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:projectasahi/extensions/hover_extensions.dart';
+import 'package:projectasahi/components/custom_paint_button.dart';
 
 class UpButton extends StatelessWidget {
   final Function onTap;
@@ -16,24 +16,17 @@ class UpButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return CustomPaintButton(
       onTap: () {
         onTap.call();
       },
-      child: Container(
-        child: CustomPaint(
-          painter: _UpButtonBackgroundPainter(color: color),
-          child: Padding(
-            padding: EdgeInsets.only(left: 72, right: 72, top: 12, bottom: 12),
-            child: Material(
-              color: Colors.transparent,
-              child: Icon(
-                Icons.keyboard_arrow_down,
-                color: iconColor,
-                size: 32,
-              ),
-            ),
-          ).showCursorOnHover,
+      painter: _UpButtonBackgroundPainter(color: color),
+      child: Padding(
+        padding: EdgeInsets.only(left: 72, right: 72, top: 12, bottom: 12),
+        child: Icon(
+          Icons.keyboard_arrow_down,
+          color: iconColor,
+          size: 32,
         ),
       ),
     );

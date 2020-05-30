@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'dart:html' as html;
+import 'package:universal_html/html.dart' as html;
 
 class PlatformAwareAssetImage extends StatelessWidget {
   final BoxFit fit;
@@ -19,12 +19,12 @@ class PlatformAwareAssetImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String res = asset;
-    // workground for webp
-    if (html.window.navigator.vendor == 'Apple Computer, Inc.') {
-      res = res.replaceAll('webp', 'png');
-    }
 
     if (kIsWeb) {
+      // workground for webp
+      if (html.window.navigator.vendor == 'Apple Computer, Inc.') {
+        res = res.replaceAll('webp', 'png');
+      }
       return Image.network(
         'assets/assets/${package == null ? '' : 'packages/$package/'}$res',
         fit: fit,
@@ -33,7 +33,7 @@ class PlatformAwareAssetImage extends StatelessWidget {
     }
 
     return Image.asset(
-      res,
+      'assets/$res',
       package: package,
       fit: fit,
       alignment: alignment,

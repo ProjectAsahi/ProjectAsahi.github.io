@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:projectasahi/extensions/hover_extensions.dart';
+import 'package:projectasahi/components/custom_paint_button.dart';
 
 class BackButtonEx extends StatelessWidget {
   final Function onTap;
@@ -16,23 +17,16 @@ class BackButtonEx extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return CustomPaintButton(
       onTap: () {
         onTap.call();
       },
-      child: Container(
-        child: CustomPaint(
-          painter: _BackButtonBackgroundPainter(color: color),
-          child: Padding(
-            padding: EdgeInsets.only(left: 48, right: 80, top: 16, bottom: 16),
-            child: Material(
-              color: Colors.transparent,
-              child: Icon(
-                Icons.arrow_back_ios,
-                color: iconColor,
-              ),
-            ),
-          ).showCursorOnHover,
+      painter: _BackButtonBackgroundPainter(color: color),
+      child: Padding(
+        padding: EdgeInsets.only(left: 48, right: 80, top: 16, bottom: 16),
+        child: Icon(
+          Icons.arrow_back_ios,
+          color: iconColor,
         ),
       ),
     );

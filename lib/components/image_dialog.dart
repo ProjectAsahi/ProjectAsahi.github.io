@@ -11,10 +11,6 @@ class ImageDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    final size = mediaQuery.size;
-    final isMobile =
-        size.width < 1024 || mediaQuery.orientation == Orientation.portrait;
     return GestureDetector(
       onTap: () {
         Navigator.of(context).pop();

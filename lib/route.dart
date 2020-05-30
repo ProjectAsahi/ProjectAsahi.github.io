@@ -16,7 +16,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     return ImageDialog(
       name: Uri.decodeComponent(params["name"]?.first),
     );
-  }), transitionType: TransitionType.cupertinoFullScreenDialog);
+  }), transitionType: TransitionType.fadeIn);
   router.define("/about", handler:
       Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
     return About();

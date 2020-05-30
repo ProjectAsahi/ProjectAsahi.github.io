@@ -7,15 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:projectasahi/data/character_data.dart';
 import 'package:projectasahi/data/project_data.dart';
 import 'package:projectasahi/extensions/iterable.dart';
+import 'package:projectasahi/extensions/media_query.dart';
 
 final Character = (String name) => HookBuilder(builder: (context) {
       final mediaQuery = MediaQuery.of(context);
       final size = mediaQuery.size;
-      final isMobile =
-          size.width < 1024 || mediaQuery.orientation == Orientation.portrait;
       final colorBgSize = size.width / 4.5;
       final colorBgTranslateX =
-          isMobile ? -size.width : colorBgSize - size.width;
+          mediaQuery.isVertical ? -size.width : colorBgSize - size.width;
       final isPoping = useState(false);
       final character =
           characters.firstWhere((element) => element.name_en == name);
@@ -125,7 +124,7 @@ final Character = (String name) => HookBuilder(builder: (context) {
                   color: character.color,
                 ),
               ),
-              !isMobile
+              !mediaQuery.isVertical
                   ? null
                   : Positioned(
                       child: SingleChildScrollView(
@@ -159,7 +158,7 @@ final Character = (String name) => HookBuilder(builder: (context) {
                         ),
                       ),
                     ),
-              isMobile
+              mediaQuery.isVertical
                   ? null
                   : Positioned(
                       left: colorBgSize / 1.5,
@@ -179,7 +178,7 @@ final Character = (String name) => HookBuilder(builder: (context) {
                         ),
                       ),
                     ),
-              isMobile
+              mediaQuery.isVertical
                   ? null
                   : Positioned(
                       // left: colorBgSize + size.height / 4,
@@ -200,7 +199,7 @@ final Character = (String name) => HookBuilder(builder: (context) {
                         ),
                       ),
                     ),
-              isMobile
+              mediaQuery.isVertical
                   ? null
                   : Positioned(
                       left: 0,
@@ -212,7 +211,7 @@ final Character = (String name) => HookBuilder(builder: (context) {
                         },
                       ),
                     ),
-              !isMobile
+              !mediaQuery.isVertical
                   ? null
                   : Positioned(
                       left: 0,

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:projectasahi/components/asset_image.dart';
@@ -8,16 +9,13 @@ import 'package:projectasahi/components/fade_in.dart';
 import 'package:projectasahi/components/logo.dart';
 import 'package:projectasahi/data/character_data.dart';
 import 'package:projectasahi/extensions/iterable.dart';
-import 'package:projectasahi/extensions/hover_extensions.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:projectasahi/extensions/media_query.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    final size = mediaQuery.size;
-    final isMobile =
-        size.width < 1024 || mediaQuery.orientation == Orientation.portrait;
     final charastersItems = characters
         .mapIndex(
           (value, index) => Expanded(
@@ -29,30 +27,30 @@ class Home extends StatelessWidget {
                   }
                 },
                 color: value.color,
-                isMobile: isMobile,
+                isMobile: mediaQuery.isVertical,
                 showDelay: 2,
                 translateY: index % 2 == 0 ? -130.0 : 130.0),
           ),
         )
         .toList();
-    if (isMobile) {
+    if (mediaQuery.isVertical) {
       charastersItems.add(Expanded(child: _Banner()));
     }
     return Stack(
       children: [
         Flex(
-          direction: isMobile ? Axis.vertical : Axis.horizontal,
+          direction: mediaQuery.isVertical ? Axis.vertical : Axis.horizontal,
           children: charastersItems,
         ),
         Visibility(
-          visible: !isMobile,
+          visible: !mediaQuery.isVertical,
           child: Positioned(
             bottom: 0,
             left: 0,
             right: 0,
             child: _Banner(),
           ),
-        )
+        ),
       ],
     );
   }
@@ -153,6 +151,7 @@ final _CharacterBoard = (
         child: Material(
           color: color,
           child: InkWell(
+            mouseCursor: SystemMouseCursors.click,
             onHover: (value) => isPointerOver.value = value,
             onTap: () => onTab.call(),
             child: Container(
@@ -174,7 +173,7 @@ final _CharacterBoard = (
                             ? Alignment(0, -0.80)
                             : Alignment(-0.66, -1),
                         fit: BoxFit.cover,
-                      ).showCursorOnHover,
+                      ),
                     ),
                   ),
                   FadeIn(
