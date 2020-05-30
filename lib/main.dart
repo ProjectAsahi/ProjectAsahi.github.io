@@ -12,7 +12,11 @@ class RootView extends StatelessWidget {
       title: "ProjectAsahi",
       navigatorObservers: [HeroController()],
       onGenerateRoute: generateRoute,
-      textStyle: const TextStyle(color: Colors.black, fontSize: 16),
+      textStyle: const TextStyle(
+        color: Colors.black,
+        fontSize: 16,
+        fontFamily: "SourceHanSans"
+      ),
       initialRoute: "/",
       color: Colors.blue,
     );

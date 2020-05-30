@@ -1,4 +1,4 @@
-import 'package:projectasahi/components/asset_image.dart';
+import 'package:projectasahi/components/platform_aware_asset_image.dart';
 import 'package:projectasahi/components/back_button.dart';
 import 'package:projectasahi/components/fade_in.dart';
 import 'package:projectasahi/components/slide_in.dart';

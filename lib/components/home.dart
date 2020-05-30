@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:projectasahi/components/asset_image.dart';
+import 'package:projectasahi/components/platform_aware_asset_image.dart';
 import 'package:projectasahi/components/fade_in.dart';
 import 'package:projectasahi/components/logo.dart';
 import 'package:projectasahi/data/character_data.dart';

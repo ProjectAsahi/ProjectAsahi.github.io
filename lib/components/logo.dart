@@ -1,6 +1,5 @@
-import 'dart:math';
 import 'package:flutter/widgets.dart';
-import 'package:projectasahi/components/asset_image.dart';
+import 'package:projectasahi/components/platform_aware_asset_image.dart';
 
 class Logo extends StatelessWidget {
   @override

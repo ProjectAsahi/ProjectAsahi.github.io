@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
-import 'package:projectasahi/components/asset_image.dart';
+import 'package:projectasahi/components/platform_aware_asset_image.dart';
 import 'package:projectasahi/components/back_button.dart';
 import 'package:projectasahi/data/project_data.dart';
 

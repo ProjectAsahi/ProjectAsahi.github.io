@@ -21,6 +21,10 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 flutter:
+  fonts:
+    - family: SourceHanSans
+      fonts:
+        - asset: assets/fonts/SourceHanSans-Regular.ttf
   uses-material-design: true
   assets:
     - assets/
