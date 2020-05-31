@@ -47,7 +47,7 @@ class _BackButtonBackgroundPainter extends CustomPainter {
       ..isAntiAlias = true
       ..style = paintingStyle;
     final path = getTrianglePath(size);
-    canvas.drawShadow(path, Colors.black, 4.0, false);
+    // canvas.drawShadow(path, Colors.black, 4.0, false);
     canvas.drawPath(path, paint);
   }
 
