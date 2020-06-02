@@ -52,11 +52,13 @@ class _UpButtonBackgroundPainter extends CustomPainter {
   }
 
   Path getTrianglePath(Size size) {
+    final width = size.width;
+    final height = size.height;
     return Path()
       ..moveTo(0, 0)
-      ..lineTo(size.width / 5, size.height)
-      ..lineTo(size.width / 5 * 4, size.height)
-      ..lineTo(size.width, 0)
+      ..lineTo(width / 5, height)
+      ..lineTo(width / 5 * 4, height)
+      ..lineTo(width, 0)
       ..lineTo(0, 0);
   }
 

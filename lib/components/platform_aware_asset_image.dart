@@ -26,14 +26,14 @@ class PlatformAwareAssetImage extends StatelessWidget {
         res = res.replaceAll('webp', 'png');
       }
       return Image.network(
-        'assets/assets/${package == null ? '' : 'packages/$package/'}$res',
+        'assets/assets/images/${package == null ? '' : 'packages/$package/'}$res',
         fit: fit,
         alignment: alignment,
       );
     }
 
     return Image.asset(
-      'assets/$res',
+      'assets/images/$res',
       package: package,
       fit: fit,
       alignment: alignment,

@@ -16,6 +16,7 @@ dependencies:
   flutter_svg: ^0.17.3+1
   photo_view: ^0.9.2
   universal_html: ^1.2.2
+  easy_localization: ^2.3.2
 
 dev_dependencies:
   flutter_test:
@@ -27,5 +28,6 @@ flutter:
         - asset: assets/fonts/SourceHanSans-Regular.ttf
   uses-material-design: true
   assets:
-    - assets/
-    - assets/asahi/
+    - assets/images/
+    - assets/images/asahi/
+    - assets/translations/

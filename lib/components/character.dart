@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:projectasahi/components/platform_aware_asset_image.dart';
 import 'package:projectasahi/components/back_button.dart';
 import 'package:projectasahi/components/fade_in.dart';
@@ -19,7 +20,7 @@ final Character = (String name) => HookBuilder(builder: (context) {
       final character =
           characters.firstWhere((element) => element.name_en == name);
 
-      if (character == null) {
+      if (character == null || !character.enabled) {
         return Center(
           child: Text(name + " not found"),
         );
@@ -56,14 +57,14 @@ final Character = (String name) => HookBuilder(builder: (context) {
 
       final descs = [
         Text(
-          character.name,
+          tr(character.name),
           style: TextStyle(
             color: character.text_color,
             fontSize: 60,
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 50),
+        SizedBox(height: 36),
         FadeIn(
           delay: 3,
           opacity: 0,
@@ -75,14 +76,17 @@ final Character = (String name) => HookBuilder(builder: (context) {
                 .map(
                   (e) => TableRow(
                     children: [
-                      Text(
-                        e.key,
-                        style: TextStyle(color: character.text_color),
+                      Padding(
+                        padding: EdgeInsets.only(top: 4, bottom: 4),
+                        child: Text(
+                          tr(e.key),
+                          style: TextStyle(color: character.text_color),
+                        ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 32),
+                        padding: EdgeInsets.only(left: 32, top: 4, bottom: 4),
                         child: Text(
-                          e.value,
+                          tr(e.value),
                         ),
                       ),
                     ],
@@ -91,10 +95,10 @@ final Character = (String name) => HookBuilder(builder: (context) {
                 .toList(),
           ),
         ),
-        SizedBox(height: 50),
+        SizedBox(height: 36),
         FadeIn(
           child: Text(
-            character.summary,
+            tr(character.summary),
           ),
           delay: 4,
           opacity: 0,

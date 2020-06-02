@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:projectasahi/components/fade_in.dart';
@@ -6,6 +7,7 @@ import 'package:projectasahi/components/logo.dart';
 import 'package:projectasahi/components/up_button.dart';
 import 'package:projectasahi/extensions/iterable.dart';
 import 'package:projectasahi/data/project_data.dart';
+import 'package:projectasahi/generated/codegen_loader.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatelessWidget {
@@ -54,7 +56,7 @@ class About extends StatelessWidget {
                           TableRow(
                             children: [
                               Text(
-                                "企划",
+                                tr(LocaleKeys.producer),
                               ),
                               FlatButton(
                                 textColor: projectData.producer.color,
@@ -70,7 +72,7 @@ class About extends StatelessWidget {
                             (value, index) => TableRow(
                               children: [
                                 Text(
-                                  index == 0 ? "原画" : "",
+                                  index == 0 ? tr(LocaleKeys.artist) : "",
                                 ),
                                 FlatButton(
                                   textColor: value.color,
@@ -88,7 +90,7 @@ class About extends StatelessWidget {
                           TableRow(
                             children: [
                               Text(
-                                "企划协力",
+                                tr(LocaleKeys.project_assistant),
                               ),
                               FlatButton(
                                 textColor: projectData.assitant.color,
