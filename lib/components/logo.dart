@@ -5,7 +5,7 @@ class Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 1100.0 / 250.0,
+      aspectRatio: 3423.0 / 462.0,
       child: Hero(
         tag: 'logo',
         child: PlatformAwareAssetImage(
