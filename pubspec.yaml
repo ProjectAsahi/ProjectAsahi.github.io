@@ -30,4 +30,6 @@ flutter:
   assets:
     - assets/images/
     - assets/images/asahi/
+    - assets/images/aki/
+    - assets/images/tesla/
     - assets/translations/

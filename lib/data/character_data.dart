@@ -67,7 +67,7 @@ const characters = [
       LocaleKeys.gender: _female,
     },
     enabled: false,
-    main_visual: "placeholder.webp",
+    main_visual: 'placeholder.webp',
     color: Colors.blueAccent,
   ),
   CharacterData(
@@ -77,7 +77,7 @@ const characters = [
       LocaleKeys.gender: _futanari,
     },
     enabled: false,
-    main_visual: "placeholder.webp",
+    main_visual: "tesla/main_visual.webp",
     color: Colors.purpleAccent,
   ),
   CharacterData(
