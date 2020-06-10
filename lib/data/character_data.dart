@@ -67,7 +67,7 @@ const characters = [
       LocaleKeys.gender: _female,
     },
     enabled: false,
-    main_visual: 'placeholder.webp',
+    main_visual: 'aki/cut.webp',
     color: Colors.blueAccent,
   ),
   CharacterData(
