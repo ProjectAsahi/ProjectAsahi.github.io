@@ -1,31 +1,37 @@
-import 'package:fluro/fluro.dart';
 import 'package:flutter/widgets.dart';
+import 'package:projectasahi/components/MaterialPageRouteEx.dart';
 import 'package:projectasahi/components/about.dart';
 import 'package:projectasahi/components/character.dart';
 import 'package:projectasahi/components/home.dart';
 import 'package:projectasahi/components/image_dialog.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
-  Router router = new Router();
-  router.define("/character/:id", handler:
-      Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-    return Character(params["id"][0]);
-  }), transitionType: TransitionType.cupertino);
-  router.define("/assets", handler:
-      Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-    return ImageDialog(
-      name: Uri.decodeComponent(params["name"]?.first),
+  if (settings.name.startsWith("/character")) {
+    return CupertinoPageRouteEx(
+      builder: (_) => Character(settings.name.split('/')[2]),
+      settings: settings,
     );
-  }), transitionType: TransitionType.fadeIn);
-  router.define("/about", handler:
-      Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-    return About();
-  }), transitionType: TransitionType.cupertinoFullScreenDialog);
-  router.define('/', handler:
-      Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-    return Home();
-  }), transitionType: TransitionType.fadeIn);
-  return router.generator(settings);
+  } else if (settings.name.startsWith("/assets")) {
+    return CupertinoPageRouteEx(
+      builder: (_) => ImageDialog(
+        name: Uri.decodeComponent(settings.name.split('/')[2]),
+      ),
+      settings: settings,
+      fullscreenDialog: true,
+      transitionsBuilder: FadePageTransitionsBuilder(),
+    );
+  } else if (settings.name.startsWith('/about')) {
+    return CupertinoPageRouteEx(
+      builder: (_) => About(),
+      settings: settings,
+      fullscreenDialog: true,
+    );
+  } else {
+    return CupertinoPageRouteEx(
+      builder: (_) => Home(),
+      settings: settings,
+    );
+  }
 }
 
 PageRoute _getPageRoute(Widget child, RouteSettings settings) {

@@ -39,7 +39,7 @@ final Character = (String name) => HookBuilder(builder: (context) {
                 ),
                 onPressed: () {
                   Navigator.of(context)
-                      .pushNamed("/assets?name=" + Uri.encodeComponent(value));
+                      .pushNamed("/assets/" + Uri.encodeComponent(value));
                 },
                 child: Padding(
                   padding: EdgeInsets.all(8),
@@ -122,6 +122,7 @@ final Character = (String name) => HookBuilder(builder: (context) {
           child: Stack(
             children: [
               SlideIn(
+                delay: 1,
                 translateXTo: isPoping.value ? 0 : colorBgTranslateX,
                 child: Container(
                   width: isPoping.value ? colorBgSize : size.width,
