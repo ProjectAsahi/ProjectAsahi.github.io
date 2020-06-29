@@ -1,55 +1,56 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:projectasahi/components/platform_aware_asset_image.dart';
 import 'package:projectasahi/components/fade_in.dart';
 import 'package:projectasahi/components/logo.dart';
 import 'package:projectasahi/data/character_data.dart';
 import 'package:projectasahi/extensions/iterable.dart';
-import 'package:projectasahi/extensions/hover_extensions.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:projectasahi/extensions/media_query.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    final size = mediaQuery.size;
-    final isMobile =
-        size.width < 1024 || mediaQuery.orientation == Orientation.portrait;
     final charastersItems = characters
         .mapIndex(
           (value, index) => Expanded(
             child: _CharacterBoard(
-                image: AssetImage(value.main_visual),
+                image: value.main_visual,
                 onTab: () {
                   if (value.enabled) {
                     Navigator.pushNamed(context, "/character/" + value.name_en);
                   }
                 },
                 color: value.color,
-                isMobile: isMobile,
+                isMobile: mediaQuery.isVertical,
                 showDelay: 2,
                 translateY: index % 2 == 0 ? -130.0 : 130.0),
           ),
         )
         .toList();
-    if (isMobile) {
+    if (mediaQuery.isVertical) {
       charastersItems.add(Expanded(child: _Banner()));
     }
     return Stack(
       children: [
         Flex(
-          direction: isMobile ? Axis.vertical : Axis.horizontal,
+          direction: mediaQuery.isVertical ? Axis.vertical : Axis.horizontal,
           children: charastersItems,
         ),
         Visibility(
-          visible: !isMobile,
+          visible: !mediaQuery.isVertical,
           child: Positioned(
             bottom: 0,
             left: 0,
             right: 0,
             child: _Banner(),
           ),
-        )
+        ),
       ],
     );
   }
@@ -85,7 +86,10 @@ class _Banner extends StatelessWidget {
                     Center(
                       child: Padding(
                         padding: EdgeInsets.all(30),
-                        child: Logo(),
+                        child: Container(
+                          width: min(size.width, 600),
+                          child: Logo(),
+                        ),
                       ),
                     ),
                     Positioned(
@@ -97,19 +101,25 @@ class _Banner extends StatelessWidget {
                             onPressed: () {
                               launch("https://space.bilibili.com/146407");
                             },
-                            icon: Image.asset('bilibili_logo_colored.webp'),
+                            icon: PlatformAwareAssetImage(
+                              asset: "bilibili_logo_colored.webp",
+                            ),
                           ),
                           IconButton(
                             onPressed: () {
                               launch("https://weibo.com/AsahiTakagaki");
                             },
-                            icon: Image.asset('weibo_logo_colored.webp'),
+                            icon: PlatformAwareAssetImage(
+                              asset: "weibo_logo_colored.webp",
+                            ),
                           ),
                           IconButton(
                             onPressed: () {
                               Navigator.pushNamed(context, '/about');
                             },
-                            icon: Image.asset('helo_icon.webp'),
+                            icon: PlatformAwareAssetImage(
+                              asset: "help_icon.webp",
+                            ),
                           ),
                         ],
                       ),
@@ -124,7 +134,7 @@ class _Banner extends StatelessWidget {
 }
 
 final _CharacterBoard = (
-        {ImageProvider image,
+        {String image,
         double showDelay,
         double translateY,
         Color color,
@@ -141,6 +151,7 @@ final _CharacterBoard = (
         child: Material(
           color: color,
           child: InkWell(
+            mouseCursor: SystemMouseCursors.click,
             onHover: (value) => isPointerOver.value = value,
             onTap: () => onTab.call(),
             child: Container(
@@ -156,13 +167,13 @@ final _CharacterBoard = (
                       alignment:
                           isMobile ? Alignment.topCenter : Alignment(-1, -1),
                       widthFactor: isMobile ? 1 : 1.3,
-                      child: Image(
-                        image: image,
+                      child: PlatformAwareAssetImage(
+                        asset: image,
                         alignment: isMobile
                             ? Alignment(0, -0.80)
                             : Alignment(-0.66, -1),
                         fit: BoxFit.cover,
-                      ).showCursorOnHover,
+                      ),
                     ),
                   ),
                   FadeIn(
@@ -174,7 +185,7 @@ final _CharacterBoard = (
                       child: Container(
                         color: color.withOpacity(0.5),
                       ),
-                      curve: Curves.easeInOutCirc,
+                      curve: Curves.easeOutExpo,
                       duration: Duration(milliseconds: 250),
                     ),
                   ),

@@ -1,24 +1,26 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:projectasahi/components/platform_aware_asset_image.dart';
 import 'package:projectasahi/components/back_button.dart';
 import 'package:projectasahi/components/fade_in.dart';
 import 'package:projectasahi/components/slide_in.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter/material.dart';
 import 'package:projectasahi/data/character_data.dart';
+import 'package:projectasahi/data/project_data.dart';
 import 'package:projectasahi/extensions/iterable.dart';
+import 'package:projectasahi/extensions/media_query.dart';
 
 final Character = (String name) => HookBuilder(builder: (context) {
       final mediaQuery = MediaQuery.of(context);
       final size = mediaQuery.size;
-      final isMobile =
-          size.width < 1024 || mediaQuery.orientation == Orientation.portrait;
       final colorBgSize = size.width / 4.5;
       final colorBgTranslateX =
-          isMobile ? -size.width : colorBgSize - size.width;
+          mediaQuery.isVertical ? -size.width : colorBgSize - size.width;
       final isPoping = useState(false);
       final character =
           characters.firstWhere((element) => element.name_en == name);
 
-      if (character == null) {
+      if (character == null || !character.enabled) {
         return Center(
           child: Text(name + " not found"),
         );
@@ -37,12 +39,15 @@ final Character = (String name) => HookBuilder(builder: (context) {
                 ),
                 onPressed: () {
                   Navigator.of(context)
-                      .pushNamed("/assets?name=" + Uri.encodeComponent(value));
+                      .pushNamed("/assets/" + Uri.encodeComponent(value));
                 },
                 child: Padding(
                   padding: EdgeInsets.all(8),
-                  child: Image(
-                    image: AssetImage(value),
+                  child: Hero(
+                    tag: value,
+                    child: PlatformAwareAssetImage(
+                      asset: value,
+                    ),
                   ),
                 ),
               ),
@@ -52,14 +57,14 @@ final Character = (String name) => HookBuilder(builder: (context) {
 
       final descs = [
         Text(
-          character.name,
+          tr(character.name),
           style: TextStyle(
             color: character.text_color,
             fontSize: 60,
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 50),
+        SizedBox(height: 36),
         FadeIn(
           delay: 3,
           opacity: 0,
@@ -71,14 +76,17 @@ final Character = (String name) => HookBuilder(builder: (context) {
                 .map(
                   (e) => TableRow(
                     children: [
-                      Text(
-                        e.key,
-                        style: TextStyle(color: character.text_color),
+                      Padding(
+                        padding: EdgeInsets.only(top: 4, bottom: 4),
+                        child: Text(
+                          tr(e.key),
+                          style: TextStyle(color: character.text_color),
+                        ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 32),
+                        padding: EdgeInsets.only(left: 32, top: 4, bottom: 4),
                         child: Text(
-                          e.value,
+                          tr(e.value),
                         ),
                       ),
                     ],
@@ -87,10 +95,10 @@ final Character = (String name) => HookBuilder(builder: (context) {
                 .toList(),
           ),
         ),
-        SizedBox(height: 50),
+        SizedBox(height: 36),
         FadeIn(
           child: Text(
-            character.summary,
+            tr(character.summary),
           ),
           delay: 4,
           opacity: 0,
@@ -114,19 +122,25 @@ final Character = (String name) => HookBuilder(builder: (context) {
           child: Stack(
             children: [
               SlideIn(
+                delay: 1,
                 translateXTo: isPoping.value ? 0 : colorBgTranslateX,
                 child: Container(
                   width: isPoping.value ? colorBgSize : size.width,
                   color: character.color,
                 ),
               ),
-              !isMobile
+              !mediaQuery.isVertical
                   ? null
                   : Positioned(
                       child: SingleChildScrollView(
                         physics: BouncingScrollPhysics(),
                         child: Padding(
-                          padding: EdgeInsets.all(30),
+                          padding: EdgeInsets.only(
+                            top: 80,
+                            left: 30,
+                            right: 30,
+                            bottom: 30,
+                          ),
                           child: Column(
                             children: [
                               Container(
@@ -138,8 +152,8 @@ final Character = (String name) => HookBuilder(builder: (context) {
                                   delay: 2,
                                   opacity: 0,
                                   translateX: 50,
-                                  child: Image(
-                                    image: AssetImage(character.main_visual),
+                                  child: PlatformAwareAssetImage(
+                                    asset: character.main_visual,
                                   ),
                                 ),
                               ),
@@ -149,7 +163,7 @@ final Character = (String name) => HookBuilder(builder: (context) {
                         ),
                       ),
                     ),
-              isMobile
+              mediaQuery.isVertical
                   ? null
                   : Positioned(
                       left: colorBgSize / 1.5,
@@ -163,13 +177,13 @@ final Character = (String name) => HookBuilder(builder: (context) {
                         translateX: 100,
                         child: Padding(
                           padding: EdgeInsets.only(top: 30, bottom: 30),
-                          child: Image(
-                            image: AssetImage(character.main_visual),
+                          child: PlatformAwareAssetImage(
+                            asset: character.main_visual,
                           ),
                         ),
                       ),
                     ),
-              isMobile
+              mediaQuery.isVertical
                   ? null
                   : Positioned(
                       // left: colorBgSize + size.height / 4,
@@ -190,12 +204,26 @@ final Character = (String name) => HookBuilder(builder: (context) {
                         ),
                       ),
                     ),
-              isMobile
+              mediaQuery.isVertical
                   ? null
                   : Positioned(
                       left: 0,
                       top: 0,
                       child: BackButtonEx(
+                        onTap: () {
+                          isPoping.value = true;
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ),
+              !mediaQuery.isVertical
+                  ? null
+                  : Positioned(
+                      left: 0,
+                      top: 0,
+                      child: BackButtonEx(
+                        color: accentColor,
+                        iconColor: Colors.white,
                         onTap: () {
                           isPoping.value = true;
                           Navigator.of(context).pop();

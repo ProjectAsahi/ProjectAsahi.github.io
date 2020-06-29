@@ -16,7 +16,7 @@ class PersonData {
 
   PersonData({this.color, this.name, this.link = ""});
 }
-final accentColor = HexColor.fromHex("#ff3fb9");
+final accentColor = HexColor.fromHex("#ff4081");
 final primaryColor = HexColor.fromHex("#0080ff");
 final projectData = ProjectData(
   producer: PersonData(

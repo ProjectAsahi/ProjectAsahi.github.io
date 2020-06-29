@@ -1,10 +1,13 @@
 import 'dart:math';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:projectasahi/components/back_button.dart';
 import 'package:projectasahi/components/fade_in.dart';
+import 'package:projectasahi/components/logo.dart';
+import 'package:projectasahi/components/up_button.dart';
 import 'package:projectasahi/extensions/iterable.dart';
 import 'package:projectasahi/data/project_data.dart';
+import 'package:projectasahi/generated/codegen_loader.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatelessWidget {
@@ -16,10 +19,19 @@ class About extends StatelessWidget {
       color: Colors.white,
       child: Stack(
         children: [
-          BackButtonEx(
-            color: accentColor,
-            iconColor: Colors.white,
-            onTap: () => Navigator.of(context).pop(),
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: UpButton(
+                color: accentColor,
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+                iconColor: Colors.white,
+              ),
+            ),
           ),
           Center(
             child: Padding(
@@ -29,7 +41,7 @@ class About extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset('projectasahi_logo.webp'),
+                    Logo(),
                     SizedBox(height: 50),
                     FadeIn(
                       delay: 1,
@@ -44,12 +56,15 @@ class About extends StatelessWidget {
                           TableRow(
                             children: [
                               Text(
-                                "企划",
+                                tr(LocaleKeys.producer),
                               ),
                               FlatButton(
                                 textColor: projectData.producer.color,
                                 onPressed: () {},
-                                child: Text(projectData.producer.name),
+                                child: Text(
+                                  projectData.producer.name,
+                                  style: const TextStyle(fontSize: 20),
+                                ),
                               ),
                             ],
                           ),
@@ -57,7 +72,7 @@ class About extends StatelessWidget {
                             (value, index) => TableRow(
                               children: [
                                 Text(
-                                  index == 0 ? "原画" : "",
+                                  index == 0 ? tr(LocaleKeys.artist) : "",
                                 ),
                                 FlatButton(
                                   textColor: value.color,
@@ -66,6 +81,7 @@ class About extends StatelessWidget {
                                   },
                                   child: Text(
                                     value.name,
+                                    style: const TextStyle(fontSize: 20),
                                   ),
                                 ),
                               ],
@@ -74,7 +90,7 @@ class About extends StatelessWidget {
                           TableRow(
                             children: [
                               Text(
-                                "企划协力",
+                                tr(LocaleKeys.project_assistant),
                               ),
                               FlatButton(
                                 textColor: projectData.assitant.color,
@@ -83,6 +99,7 @@ class About extends StatelessWidget {
                                 },
                                 child: Text(
                                   projectData.assitant.name,
+                                  style: const TextStyle(fontSize: 20),
                                 ),
                               ),
                             ],
