@@ -376,6 +376,20 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.0"
+  universal_html:
+    dependency: "direct main"
+    description:
+      name: universal_html
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.2.3"
+  universal_io:
+    dependency: transitive
+    description:
+      name: universal_io
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.1"
   url_launcher:
     dependency: transitive
     description:
