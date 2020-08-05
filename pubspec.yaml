@@ -30,6 +30,8 @@ dependencies:
   cupertino_icons: ^0.1.3
   universal_html: ^1.2.2
   simple_animations: ^2.2.1
+  url_launcher: ^5.5.0
+  carousel_slider: ^2.2.1
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +51,10 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/images/Aki/
+    - assets/images/Asahi/
+    - assets/images/Yi/
+    - assets/images/Tesla/
   fonts:
     - family: CascadiaCode
       fonts:

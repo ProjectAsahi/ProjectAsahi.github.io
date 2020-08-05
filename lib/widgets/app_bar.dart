@@ -8,7 +8,7 @@ class AppBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final logoHeight =
-        mediaQuery.size.width > 480 ? 50 : mediaQuery.size.height * 0.04;
+        mediaQuery.size.width > 480 ? 50.0 : mediaQuery.size.height * 0.04;
     return Center(
       child: Container(
         constraints: BoxConstraints(maxWidth: 1280),
