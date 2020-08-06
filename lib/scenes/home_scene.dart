@@ -137,7 +137,7 @@ class HomeScene extends StatelessWidget {
                       return PlatformAwareAssetImage(
                         fit: BoxFit.cover,
                         alignment: align,
-                        asset: 'unknown.png',
+                        asset: 'vt.webp',
                       );
                     },
                   ),

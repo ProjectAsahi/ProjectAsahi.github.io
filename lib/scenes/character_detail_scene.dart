@@ -130,7 +130,8 @@ class CharacterDetailSceneState extends State<CharacterDetailScene>
                               ),
                             ],
                           ),
-                          constraints: BoxConstraints(maxWidth: 200),
+                          constraints:
+                              BoxConstraints(maxWidth: query.size.width * 0.1),
                           child: VTabBar(
                             controller: _tabController,
                             indicatorColor: data.color,
@@ -201,12 +202,13 @@ class CharacterDetailSceneState extends State<CharacterDetailScene>
             Positioned(
               left: standardPadding,
               top: standardPadding / 2,
-              child: FlatButton.icon(
+              child: FloatingActionButton(
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                foregroundColor: Theme.of(context).textTheme.bodyText1.color,
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                icon: Icon(Icons.arrow_back),
-                label: Text('Back'),
+                child: Icon(Icons.arrow_back),
               ),
             ),
           ],
@@ -235,7 +237,6 @@ class _CharacterInfo extends StatelessWidget {
           SizedBox(height: standardPadding),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.baseline,
             children: [
               Text(
                 data.name,
@@ -252,7 +253,7 @@ class _CharacterInfo extends StatelessWidget {
             columnWidths: {
               0: FixedColumnWidth(50.0),
               1: FixedColumnWidth(100.0),
-              2: IntrinsicColumnWidth(), // i want this one to take the rest available space
+              2: IntrinsicColumnWidth(),
             },
             children: data.extraData.entries
                 .map(
