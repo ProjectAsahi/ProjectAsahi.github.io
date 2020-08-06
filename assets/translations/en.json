@@ -1,0 +1,35 @@
+{
+    "birthday": "Birthday",
+    "age": "Age",
+    "gender": "Gender",
+    "height": "Height",
+    "hobby": "Hobby",
+    "favourite": {
+        "food": "Favorite Food",
+        "animal": "Favorite Animal"
+    },
+    "characters": {
+        "asahi": {
+            "name_localized": "Asahi Takagaki",
+            "intro": "Oh? I'm a boy!",
+            "summary": "A sunshine \"girl\" who likes to wear sailor clothes, but \"her\" real identity is a boy, and he wears women's clothing just because he likes cute clothes. His hair is real and is well maintained. He is very confident in his ponytail. Working in a maid cafe for its cute clothes, and he is very popular in the cafe.\nSeems to like a character called Asahi in the game.",
+            "birthday": "July 10",
+            "height": "162cm",
+            "age": "Eternally 17-years-old",
+            "hobby": "Housework and Part-time Maid Cafe",
+            "favourite": {
+                "food": "Macarons and other sweets!",
+                "animal": "Bear, cat!"
+            }
+        },
+        "aki": {
+
+        },
+        "tesla": {
+
+        }, 
+        "yi": {
+            
+        }
+    }
+}

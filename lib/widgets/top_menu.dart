@@ -6,12 +6,13 @@ class MenuItem {
   MenuItem(this.title, this.navigationName);
 }
 
+final List<MenuItem> tabs = [
+  MenuItem("角色", '/character'),
+  MenuItem("故事", '/story'),
+  MenuItem("关于", '/about')
+];
+
 class TopMenuWidget extends StatelessWidget {
-  final List<MenuItem> tabs = [
-    MenuItem("角色", '/character'),
-    MenuItem("故事", '/story'),
-    MenuItem("关于", '/about')
-  ];
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -53,6 +54,26 @@ class TopMenuWidget extends StatelessWidget {
             ),
           )
           .toList(),
+    );
+  }
+}
+
+class AppDrawer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        children: tabs
+            .map(
+              (e) => ListTile(
+                onTap: () {
+                  Navigator.of(context).pushNamed(e.navigationName);
+                },
+                title: Text(e.title),
+              ),
+            )
+            .toList(),
+      ),
     );
   }
 }

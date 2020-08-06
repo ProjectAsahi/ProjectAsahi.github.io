@@ -1,22 +1,27 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:projectasahi/utils/optionalExpanded.dart';
+import 'package:projectasahi/utils/standard_padding.dart';
 import 'package:projectasahi/widgets/app_bar.dart';
+import 'package:projectasahi/widgets/character_container.dart';
 import 'package:projectasahi/widgets/fade_in.dart';
 import 'package:projectasahi/widgets/footer.dart';
 import 'package:projectasahi/widgets/media_card.dart';
 import 'package:projectasahi/widgets/platform_aware_asset_image.dart';
 import 'package:projectasahi/widgets/row_or_column.dart';
+import 'package:projectasahi/widgets/top_menu.dart';
 
 class HomeScene extends StatelessWidget {
   final ScrollController _controller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
+    final standardPadding = calcStandardPadding(context);
     final mediaQuery = MediaQuery.of(context);
-    final standardPadding = mediaQuery.size.width > 480 ? 32.0 : 8.0;
     return Scaffold(
-      endDrawer: Drawer(),
+      endDrawer: AppDrawer(),
       body: Scrollbar(
         child: CustomScrollView(
           controller: _controller,
@@ -156,11 +161,11 @@ class HomeScene extends StatelessWidget {
                         "//",
                       ),
                       Text(
-                        "What you seeing",
+                        "What you see",
                         textAlign: TextAlign.center,
                       ),
                       Text(
-                        "Is NOT what you thinking",
+                        "Is NOT what you think",
                         textAlign: TextAlign.center,
                       ),
                     ],
@@ -241,138 +246,6 @@ class HomeScene extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class CharacterContainer extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final query = MediaQuery.of(context);
-    return Container(
-      height: query.size.height * 0.75,
-      child: RowOrPageView(
-        children: [
-          _CharacterItem(
-            visual: 'Asahi/main_visual.webp',
-            title: '高垣朝陽',
-            color: Colors.teal,
-            id: 'Asahi',
-          ),
-          _CharacterItem(
-            visual: 'Tesla/main_visual.webp',
-            title: 'Tesla',
-            color: Colors.purple,
-            id: 'Tesla',
-          ),
-          _CharacterItem(
-            visual: 'Aki/main_visual.webp',
-            title: '秋',
-            color: Colors.blue,
-            id: 'Aki',
-          ),
-          _CharacterItem(
-            visual: 'Yi/main_visual.webp',
-            title: '翼',
-            color: Colors.pink,
-            alignment: Alignment.centerLeft,
-            id: 'Yi',
-          ),
-        ].map((e) => optionalExpanded(context, e)).toList(),
-      ),
-    );
-  }
-}
-
-class _CharacterItem extends StatefulWidget {
-  final String visual;
-  final Alignment alignment;
-  final Color color;
-  final String title;
-  final String id;
-
-  const _CharacterItem({
-    Key key,
-    this.visual,
-    this.alignment = Alignment.center,
-    this.color,
-    this.title,
-    this.id,
-  }) : super(key: key);
-  @override
-  __CharacterItemState createState() => __CharacterItemState();
-}
-
-class __CharacterItemState extends State<_CharacterItem> {
-  bool isPointerOver = false;
-  @override
-  Widget build(BuildContext context) {
-    final query = MediaQuery.of(context);
-    return Container(
-      child: GestureDetector(
-        onTap: () {
-          Navigator.pushNamed(context, '/character/' + widget.id);
-        },
-        child: MouseRegion(
-          onEnter: (event) {
-            setState(() {
-              isPointerOver = true;
-            });
-          },
-          onExit: (event) {
-            setState(() {
-              isPointerOver = false;
-            });
-          },
-          onHover: (event) {},
-          cursor: SystemMouseCursors.click,
-          child: Stack(
-            children: [
-              Center(
-                child: Hero(
-                  tag: 'avatar_main_visual_' + widget.id,
-                  child: PlatformAwareAssetImage(
-                    height: query.size.height * 0.75,
-                    fit: BoxFit.cover,
-                    asset: widget.visual,
-                    alignment: widget.alignment,
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 0,
-                right: 0,
-                top: query.size.height * 0.75 * 0.3,
-                child: AnimatedContainer(
-                  duration: Duration(milliseconds: 333),
-                  decoration: BoxDecoration(),
-                  curve: Curves.easeOutCubic,
-                  transform: Matrix4.identity()
-                    ..translate(0.0, (isPointerOver ? 0 : 100).toDouble()),
-                  child: AnimatedOpacity(
-                    curve: Curves.easeOutCubic,
-                    opacity: isPointerOver ? 1.0 : 0.0,
-                    duration: Duration(milliseconds: 333),
-                    child: Container(
-                      alignment: Alignment.center,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                      color: widget.color,
-                      child: Text(
-                        widget.title,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline6
-                            .copyWith(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
         ),
       ),
     );

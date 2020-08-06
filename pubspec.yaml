@@ -32,6 +32,8 @@ dependencies:
   simple_animations: ^2.2.1
   url_launcher: ^5.5.0
   carousel_slider: ^2.2.1
+  matrix4_transform: ^1.1.4
+  easy_localization: ^2.3.2
 
 dev_dependencies:
   flutter_test:
@@ -55,6 +57,7 @@ flutter:
     - assets/images/Asahi/
     - assets/images/Yi/
     - assets/images/Tesla/
+    - assets/translations/
   fonts:
     - family: CascadiaCode
       fonts:
