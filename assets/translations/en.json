@@ -3,33 +3,201 @@
     "age": "Age",
     "gender": "Gender",
     "height": "Height",
-    "hobby": "Hobby",
+    "hobby": "Hobbies",
+    "family": "Family",
+    "future_family": "Future family",
+    "cafe": "Maid Café",
+    "description": "Description",
+    "relationship": "Relationship",
+    "gallery": "Gallery",
     "favourite": {
-        "food": "Favorite Food",
-        "animal": "Favorite Animal"
+        "food": "Favorite food",
+        "cocktails": "Favorite cocktails",
+        "drink": "Favorite drink",
+        "animal": "Favorite Animals",
+        "bang": "Favorite Band"
     },
     "characters": {
         "asahi": {
-            "name_localized": "Asahi Takagaki",
+            "name_localized": "高垣朝陽",
             "intro": "Oh? I'm a boy!",
-            "summary": "A sunshine \"girl\" who likes to wear sailor clothes, but \"her\" real identity is a boy, and he wears women's clothing just because he likes cute clothes. His hair is real and is well maintained. He is very confident in his ponytail. Working in a maid cafe for its cute clothes, and he is very popular in the cafe.\nSeems to like a character called Asahi in the game.",
+            "summary": "Sunshine girl who likes to wear sailor outfits, but her real identity is a boy and he wears girls's clothes just because he likes cute clothes. He has real hair and good hair texture, and is very confident in her ponytail. \nHe works at a maid café because of the cuteness of her clothes and is very popular in the café. \nHe is the older brother of Tesla and Yi, and loves them very much. He takes care of all the household chores and even makes them lunchboxes at school. Often spat out by Tesla: \"Onii-Chan just like a mother.\", \nClaiming to be 17.",
             "birthday": "July 10",
             "height": "162cm",
-            "age": "Eternally 17-years-old",
-            "hobby": "Housework and Part-time Maid Cafe",
+            "age": "17 forever",
+            "hobby": "Housework and part-time jobs at maid café",
             "favourite": {
-                "food": "Macarons and other sweets!",
-                "animal": "Bear, cat!"
+                "food": "Macaroons and other desserts!",
+                "animal": "Little bear, cat!"
+            },
+            "gallery": {
+                "live": {
+                    "title": "Showtime at Maid Cafe",
+                    "desc": "The maid café where Asahi is located will often have small performances, and as a popular store employee, he is often required to perform on stage."
+                },
+                "gamming": {
+                    "title": "Live Streaming",
+                    "desc": "During his time off at home Asahi would often play some live games and play a wide range of more omnivorous types of games."
+                },
+                "cookie": {
+                    "title": "Dessert World",
+                    "desc": "Asahi loves desserts, especially macaroons, and for him sweets are a source of joy."
+                },
+                "swimming": {
+                    "title": "By the sea",
+                    "desc": "Despite being a boy, the swimsuit was no slouch, and his innocence and cuteness made him a dazzling jewel on the beach."
+                },
+                "cooking": {
+                    "title": "Making dessert",
+                    "desc": "In addition to enjoying desserts very much, Asahi also likes to make his own desserts at home and sometimes develops new ones."
+                },
+                "avatar_3d": {
+                    "title": "3D model",
+                    "desc": "3D model of Takagaki Asayo, currently undergoing further adjustments."
+                }
+            },
+            "relationship": {
+                "tesla": {
+                    "positive01": "A family!",
+                    "positive02": "Lolita is lovely!",
+                    "positive03": "The computer skills are awesome!"
+                },
+                "aki": {
+                    "positive01": "Friends from the maid café!",
+                    "positive02": "The suit looks so handsome!",
+                    "positive03": "Very sweet!"
+                },
+                "yi": {
+                    "positive01": "A family!",
+                    "positive02": "Looks both handsome and cute when doing performance!",
+                    "positive03": "The singing is great!"
+                }
             }
         },
         "aki": {
-
+            "intro": "Manners maketh man",
+            "summary": "A gentleman in a suit, stable and mature, but actually a young woman. She has a lean and strong body thanks to her daily workout and diet, and also cares for her long, beautiful hair. \nShe works at the same maid café as Takagaki Asahi, but her uniform is a housekeeper's uniform, and she is the handsome one at the café, and many girls fall in love with her for her meticulous care. Her main job is to work as a bartender in a famous bar and she is also famous. She fell in love with Takagaki Asahi even before she knew he was a man, and when she found out the truth, she started proposing to him in various ways, but was always being misunderstanding.",
+            "birthday": "September 22",
+            "height": "171cm",
+            "age": "24",
+            "hobby": "Lovely & beautiful people, bartending.",
+            "favourite": {
+                "cocktails": "Irish coffee"
+            },
+            "relationship": {
+                "tesla": {
+                    "positive01": "Cute Lolita girl",
+                    "positive02": "Future sister-in-law",
+                    "negative01": "Love rival"
+                },
+                "asahi": {
+                    "positive01": "Cute glasses girl",
+                    "positive02": "Youthful ponytails",
+                    "positive03": "But he's a guy"
+                },
+                "yi": {
+                    "positive01": "Genderqueer looks attractive too",
+                    "positive02": "Future family"
+                }
+            },
+            "gallery": {
+                "working": {
+                    "title": "Bartender",
+                    "desc": "Aki as the bartender's uniform, and for bartenders this is innovative compared to the traditional suit, without being overly casual."
+                },
+                "pandorahearts": {
+                    "title": "Gentlemen",
+                    "desc": "\"Manners maketh man\""
+                },
+                "bar": {
+                    "title": "Working",
+                    "desc": "While working at the bar, Aki made a small name for herself, and the grace with which he raised her hands during the bartending process attracted some customers."
+                }
+            }
         },
         "tesla": {
-
-        }, 
+            "intro": "...I'm not a NEET, nor brother bomplex",
+            "summary": "A young girl who likes to dress up as Lolita, but there's something else going on underneath her long dress. She has a calm and collected demeanor in her daily life. \nAlthough she is only 17 years old, she likes to study computer science at home, and is well known on Jithub. \nShe is also a OTAKU and has a wide range of interests, and secretly makes all kinds of fantasies about her brother and younger brother. She occasionally shows up at Comiket, and mostly strolls alone. \nShe is Takagaki Asahi's younger sister, Yi's elder sister. \nShe is a little brother bomplex, but doesn't show it on a regular basis to maintain a calm and collected appearance. She is very happy about the whole family being able to wear girl's clothing.",
+            "birthday": "November 21",
+            "height": "170cm",
+            "age": "17",
+            "hobby": "Onii-Chan, Onii-Chan and Onii-Chan",
+            "favourite": {
+                "food": "Onii-Chan, milk and chocolate rolls"
+            },
+            "gallery": {
+                "icon_1": {
+                    "title": "Discussion",
+                    "desc": "Although she doesn't get out much, Tesla isn't averse to interacting with people, but often isn't the one to initiate it."
+                },
+                "icon_2": {
+                    "title": "Get up",
+                    "desc": "Being a night owl, Tesla often doesn't get up until almost noon during the day. This is a set of pajamas that Tesla is very fond of."
+                },
+                "icon_3": {
+                    "title": "Computer Science",
+                    "desc": "Tesla, who usually remains calm and collected, can't help but smile when she's doing research!"
+                },
+                "yuki": {
+                    "title": "Snowy forest",
+                    "desc": "Winter is Tesla's favorite season, as summer is too hot to wear many of her Lolita outfits."
+                }
+            },
+            "relationship": {
+                "aki": {
+                    "negative01": "A rival who wants to monopolize Onii-Chan."
+                },
+                "asahi": {
+                    "positive01": "Onii-Chan, Onii-Chan, Onii-Chan",
+                    "positive02": "A good Onii-Chan can dress up gril's easily",
+                    "positive03": "Onii-Chan kawaii!"
+                },
+                "yi": {
+                    "positive01": "There's something of Onii-Chan in Yi's face.",
+                    "positive02": "Yi can wear your brother's old clothes."
+                }
+            }
+        },
         "yi": {
-            
+            "intro": "Gender? Is it important?",
+            "summary": "A little Chūnibyō, while underneath the neutral dressing, the gender is a mystery. Yi is the rhythm guitar and vocal in a band, and sometimes plays at the Livehouse, attracting a following with Yi's unique voice and J-Rock style.\nYi attends a high school where students can choose their own uniform. and Yi decides whether to go to school as a boy or girl depending on Yi's mood,and is confessed by the boys and girls on campus from time to time, but Yi have no interest in love. \nThe youngest of Takagaki Asahi and Tesla actually knows about Tesla's feelings for Asahi, but finds it interesting to observe Tesla and Asahi, and decides not to poke fun at them, but to observe them in secret.",
+            "birthday": "May 8",
+            "height": "158cm",
+            "age": "16",
+            "hobby": "Guitar Singing",
+            "favourite": {
+                "drink": "coke",
+                "bang": "ONE OK ROCK"
+            },
+            "gallery": {
+                "boy": {
+                    "title": "Boys School Uniform",
+                    "desc": "If the mood is for men's clothing today, Yi will tie a ponytail and wear a men's school uniform to school. Still, there are boys who choose to confess their love while wearing men's clothing."
+                },
+                "girl": {
+                    "title": "Girl's School Uniforms",
+                    "desc": "If the day is in the mood for girl's clothing, Yi will choose the girl's school uniform to head to school. And actually choose the girl's school uniform far more often than the men's school uniform."
+                },
+                "chibi": {
+                    "title": "Spy",
+                    "desc": "Is secretly observing Tesla and Aki compete for Asahi."
+                }
+            },
+            "relationship": {
+                "aki": {
+                    "positive01": "A handsome sister like this isn't bad either.",
+                    "positive02": "It looks like fun to compete Asahi from Tesla."
+                },
+                "asahi": {
+                    "positive01": "Take care of a hole family's life.",
+                    "positive02": "Can borrow your old clothes once in a while.",
+                    "positive03": "Kawaii"
+                },
+                "tesla": {
+                    "positive01": "It's funny to have a crush on Asahi.",
+                    "positive02": "Lolita's cute, too."
+                }
+            }
         }
     }
 }

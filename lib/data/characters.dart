@@ -327,7 +327,7 @@ final characters = [
         desc: "characters.aki.gallery.pandorahearts.desc",
       ),
       Gallery(
-        value: 'Aki/bar.webp',
+        value: 'Aki/bar.png',
         title: "characters.aki.gallery.bar.title",
         desc: "characters.aki.gallery.bar.desc",
       ),
@@ -433,7 +433,7 @@ final characters = [
         desc: "characters.yi.gallery.girl.desc",
       ),
       Gallery(
-        value: 'Yi/chibi.webp',
+        value: 'Yi/chibi.png',
         title: "characters.yi.gallery.chibi.title",
         desc: "characters.yi.gallery.chibi.desc",
       ),

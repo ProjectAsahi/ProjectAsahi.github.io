@@ -94,6 +94,7 @@ class CharacterDetailSceneState extends State<CharacterDetailScene>
                 translateX: 100,
                 delay: 2,
                 child: Card(
+                  color: Theme.of(context).scaffoldBackgroundColor,
                   child: Row(
                     children: [
                       SizedBox(
@@ -113,8 +114,12 @@ class CharacterDetailSceneState extends State<CharacterDetailScene>
                             _CharacterInfo(
                               data: data,
                             ),
-                            _RelationshipInfo(data: data),
-                            _Gallery(),
+                            _RelationshipInfo(
+                              data: data,
+                            ),
+                            _Gallery(
+                              data: data,
+                            ),
                           ],
                         ),
                       ),
@@ -206,7 +211,7 @@ class CharacterDetailSceneState extends State<CharacterDetailScene>
               left: standardPadding,
               top: standardPadding / 2,
               child: FloatingActionButton(
-                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                backgroundColor: Theme.of(context).buttonColor,
                 foregroundColor: Theme.of(context).textTheme.bodyText1.color,
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -222,16 +227,53 @@ class CharacterDetailSceneState extends State<CharacterDetailScene>
 }
 
 class _Gallery extends StatelessWidget {
+  final CharacterData data;
+
+  const _Gallery({Key key, this.data}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final standardPadding = calcStandardPadding(context);
     final query = MediaQuery.of(context);
-    final columnCount = (query.size.width / min(query.size.width, 768)).floor();
+    final columnCount = (query.size.width / min(query.size.width, 480)).floor();
     return Scrollbar(
-      child: StaggeredGridView.countBuilder(
-        staggeredTileBuilder: (_) => StaggeredTile.fit(1),
-        crossAxisCount: columnCount,
-        itemBuilder: null,
+      child: GridView.builder(
+        physics: BouncingScrollPhysics(),
+        padding: EdgeInsets.all(standardPadding),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: columnCount, childAspectRatio: 1.0),
+        itemCount: data.gallery.length,
+        itemBuilder: (context, index) {
+          return FadeIn(
+            delay: 0.5 + index.toDouble() / 20,
+            translateY: 50,
+            child: Card(
+              child: Stack(
+                children: [
+                  Positioned.fill(
+                    child: Hero(
+                      tag: '${data.id}/${data.gallery[index].value}',
+                      child: PlatformAwareAssetImage(
+                        asset: data.gallery[index].value,
+                      ),
+                    ),
+                  ),
+                  Positioned.fill(
+                    child: Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        onTap: () {
+                          final item = data.gallery[index];
+                          Navigator.of(context).pushNamed(
+                              '/gallery/${data.id}/${Uri.encodeComponent(item.value)}');
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
