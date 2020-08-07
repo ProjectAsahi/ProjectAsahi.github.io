@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:projectasahi/data/characters.dart';
 import 'package:projectasahi/utils/standard_padding.dart';
 import 'package:projectasahi/widgets/fade_in.dart';
@@ -110,8 +113,8 @@ class CharacterDetailSceneState extends State<CharacterDetailScene>
                             _CharacterInfo(
                               data: data,
                             ),
-                            Container(),
-                            Container(),
+                            _RelationshipInfo(data: data),
+                            _Gallery(),
                           ],
                         ),
                       ),
@@ -147,7 +150,7 @@ class CharacterDetailSceneState extends State<CharacterDetailScene>
                                     size: standardPadding * 1.5,
                                   ),
                                   SizedBox(height: 8),
-                                  Text("简介"),
+                                  Text("description".tr()),
                                 ],
                               ),
                               Column(
@@ -158,7 +161,7 @@ class CharacterDetailSceneState extends State<CharacterDetailScene>
                                     size: standardPadding * 1.5,
                                   ),
                                   SizedBox(height: 8),
-                                  Text("人物关系"),
+                                  Text("relationship".tr()),
                                 ],
                               ),
                               Column(
@@ -169,7 +172,7 @@ class CharacterDetailSceneState extends State<CharacterDetailScene>
                                     size: standardPadding * 1.5,
                                   ),
                                   SizedBox(height: 8),
-                                  Text("相册"),
+                                  Text("gallery".tr()),
                                 ],
                               ),
                             ],
@@ -213,6 +216,136 @@ class CharacterDetailSceneState extends State<CharacterDetailScene>
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _Gallery extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final standardPadding = calcStandardPadding(context);
+    final query = MediaQuery.of(context);
+    final columnCount = (query.size.width / min(query.size.width, 768)).floor();
+    return Scrollbar(
+      child: StaggeredGridView.countBuilder(
+        staggeredTileBuilder: (_) => StaggeredTile.fit(1),
+        crossAxisCount: columnCount,
+        itemBuilder: null,
+      ),
+    );
+  }
+}
+
+class _RelationshipInfo extends StatelessWidget {
+  final CharacterData data;
+
+  const _RelationshipInfo({Key key, this.data}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    final standardPadding = calcStandardPadding(context);
+    final query = MediaQuery.of(context);
+    final columnCount = (query.size.width / min(query.size.width, 768)).floor();
+    return Scrollbar(
+      child: CustomScrollView(
+        physics: BouncingScrollPhysics(),
+        slivers: [
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: standardPadding,
+            ),
+          ),
+          ...data.relationship
+              .map(
+                (e) {
+                  final items = e.items.map(
+                    (e) {
+                      final character = characters
+                          .firstWhere((element) => element.id == e.id);
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(8),
+                            child: SizedBox(
+                              width: 100,
+                              height: 100,
+                              child: ClipOval(
+                                child: PlatformAwareAssetImage(
+                                  asset: character.icon,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsets.only(top: 8, bottom: 8, right: 8),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  character.name,
+                                  style: Theme.of(context).textTheme.subtitle1,
+                                ),
+                                SizedBox(height: 4),
+                                Container(
+                                  height: 0.5,
+                                  width: 100,
+                                  color: Colors.grey,
+                                ),
+                                SizedBox(height: 4),
+                                ...e.items.map(
+                                  (e) => Row(
+                                    children: [
+                                      Text("${tr(e.desc)}"),
+                                      SizedBox(width: 4),
+                                      Text(
+                                        (e.isPositive ? "+" : "-") +
+                                            "${e.point}",
+                                        style: TextStyle(
+                                          color: e.isPositive
+                                              ? Colors.green
+                                              : Theme.of(context).errorColor,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  ).toList();
+                  return [
+                    SliverToBoxAdapter(
+                      child: Text(
+                        e.title.tr(),
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                    ),
+                    SliverStaggeredGrid.countBuilder(
+                      staggeredTileBuilder: (_) => StaggeredTile.fit(1),
+                      crossAxisCount: columnCount,
+                      itemCount: items.length,
+                      itemBuilder: (context, index) {
+                        return items[index];
+                      },
+                    ),
+                  ];
+                },
+              )
+              .expand((element) => element)
+              .toList(),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: standardPadding,
+            ),
+          ),
+        ],
       ),
     );
   }

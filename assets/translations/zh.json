@@ -4,6 +4,12 @@
     "gender": "性别",
     "height": "身高",
     "hobby": "爱好",
+    "family": "一家人",
+    "future_family": "未来的家人",
+    "cafe": "咖啡厅",
+    "description": "简介",
+    "relationship": "人物关系",
+    "gallery": "相册",
     "favourite": {
         "food": "喜欢的食物",
         "cocktails": "喜欢的鸡尾酒",
@@ -21,8 +27,30 @@
             "age": "永远的17岁",
             "hobby": "家务、女仆咖啡厅的打工",
             "favourite": {
-                "food": "马卡龙和其他甜食！",
+                "food": "马卡龙和其他甜点！",
                 "animal": "小熊、猫猫！"
+            },
+            "gallery": {
+                "live": {
+                    "title": "女仆咖啡厅的演出",
+                    "desc": "高垣朝陽所在的女仆咖啡厅会经常的有一些小演出，作为店内的人气店员，经常需要上台演出。"
+                },
+                "gamming": {
+                    "title": "在家直播",
+                    "desc": "在家的休息时间里高垣朝陽经常会进行一些游戏直播，玩的游戏类型也很广泛，比较杂食。"
+                },
+                "cookie": {
+                    "title": "甜点世界",
+                    "desc": "高垣朝陽非常喜欢甜点，特别是马卡龙，对于他而言甜食是快乐的来源。"
+                },
+                "swimming": {
+                    "title": "在海边",
+                    "desc": "虽然是男孩子，但是泳装却一点也不含糊，天真而可爱让他成为了海滩上耀眼的明珠。"
+                },
+                "cooking": {
+                    "title": "做甜点",
+                    "desc": "除了非常喜欢吃甜点之外，高垣朝陽还喜欢在家自己动手做甜点，有时还会开发出新的甜点。"
+                }
             },
             "relationship": {
                 "tesla": {
@@ -51,6 +79,36 @@
             "hobby": "可爱漂亮的人，调酒",
             "favourite": {
                 "cocktails": "爱尔兰咖啡"
+            },
+            "relationship": {
+                "tesla": {
+                    "positive01": "可爱的Lolita少女",
+                    "positive02": "未来的小姨子",
+                    "negative01": "情场对手"
+                },
+                "asahi": {
+                    "positive01": "可爱的眼镜娘",
+                    "positive02": "青春的单马尾",
+                    "positive03": "但是是男的"
+                },
+                "yi": {
+                    "positive01": "中性的样子也很有魅力",
+                    "positive02": "未来的家人"
+                }
+            },
+            "gallery": {
+                "working": {
+                    "title": "调酒师",
+                    "desc": "秋作为调酒师时的工作服，对于调酒师而言这样的工作服比起传统的西装而言又有创新之处，而又不至于过分的随意。"
+                },
+                "pandorahearts": {
+                    "title": "西服之心",
+                    "desc": "\"Manners maketh man\"并不是随便说说。"
+                },
+                "bar": {
+                    "title": "调酒",
+                    "desc": "在酒吧工作时的秋，在酒吧内小有名气，调酒过程中举手投足的优雅吸引到了一些顾客。"
+                }
             }
         },
         "tesla": {
@@ -62,6 +120,38 @@
             "hobby": "哥哥，哥哥和哥哥",
             "favourite": {
                 "food": "哥哥，牛奶和巧克力卷"
+            },
+            "gallery": {
+                "icon_1": {
+                    "title": "交谈中",
+                    "desc": "虽然不常出门，但是Tesla并不排斥与人交流，但往往并不是主动发起的那一方。"
+                },
+                "icon_2": {
+                    "title": "起床",
+                    "desc": "作为夜猫子的Tesla，白天往往快到中午才会起床。这身睡衣是Tesla十分中意的一套睡衣。"
+                },
+                "icon_3": {
+                    "title": "Computer Science",
+                    "desc": "平常一直保持着沉稳冷静的Tesla，研究时会不由自主的露出一些笑容"
+                },
+                "yuki": {
+                    "title": "雪林",
+                    "desc": "冬季是Tesla最喜欢的季节，因为夏天太热，很多Lolita服装没法穿。"
+                }
+            },
+            "relationship": {
+                "aki": {
+                    "negative01": "想要独占哥哥的情敌"
+                },
+                "asahi": {
+                    "positive01": "哥哥哥哥哥哥",
+                    "positive02": "会女装的哥哥才是好哥哥",
+                    "positive03": "哥哥超可爱prpr"
+                },
+                "yi": {
+                    "positive01": "长相有些哥哥的影子",
+                    "positive02": "可以穿哥哥过去的女装"
+                }
             }
         },
         "yi": {
@@ -74,6 +164,35 @@
             "favourite": {
                 "drink": "可乐",
                 "bang": "ONE OK ROCK"
+            },
+            "gallery": {
+                "boy": {
+                    "title": "男装校服",
+                    "desc": "如果今天是男装的心情，翼就会绑上马尾穿男装校服前往学校。尽管如此还是会有男生选择在穿男装时进行告白。"
+                },
+                "girl": {
+                    "title": "女装校服",
+                    "desc": "如果今天是女装的心情，翼就会选择女装校服前往学校。而实际上选择女装校服的次数远比男装校服要多。"
+                },
+                "chibi": {
+                    "title": "暗中观察",
+                    "desc": "正在暗中观察姐姐和秋争夺大哥中的翼。"
+                }
+            },
+            "relationship": {
+                "aki": {
+                    "positive01": "这样的帅姐姐也不错",
+                    "positive02": "和姐姐抢大哥的样子看起来很有趣"
+                },
+                "asahi": {
+                    "positive01": "贴心照顾生活起居，不愧是大哥",
+                    "positive02": "偶尔可以借穿一下以前的衣服",
+                    "positive03": "女装的样子很可爱"
+                },
+                "tesla": {
+                    "positive01": "暗恋大哥的样子很有趣",
+                    "positive02": "Lolita也蛮可爱的"
+                }
             }
         }
     }

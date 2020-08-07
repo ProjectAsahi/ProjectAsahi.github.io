@@ -59,13 +59,13 @@ class HomeScene extends StatelessWidget {
                               ),
                               child: Column(
                                 children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        bottom: standardPadding / 2.0),
-                                    child: PlatformAwareAssetImage(
-                                      asset: 'trap.webp',
-                                    ),
-                                  ),
+                                  // Padding(
+                                  //   padding: EdgeInsets.only(
+                                  //       bottom: standardPadding / 2.0),
+                                  //   child: PlatformAwareAssetImage(
+                                  //     asset: 'trap.webp',
+                                  //   ),
+                                  // ),
                                   Expanded(
                                     child: PlatformAwareAssetImage(
                                       alignment: Alignment.bottomCenter,

@@ -34,6 +34,10 @@ dependencies:
   carousel_slider: ^2.2.1
   matrix4_transform: ^1.1.4
   easy_localization: ^2.3.2
+  flutter_staggered_grid_view:
+    git:
+      url: https://github.com/BertrandBev/flutter_staggered_grid_view.git
+
 
 dev_dependencies:
   flutter_test:
