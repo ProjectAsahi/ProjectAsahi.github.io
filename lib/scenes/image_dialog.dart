@@ -8,6 +8,7 @@ import 'package:projectasahi/data/characters.dart';
 import 'package:projectasahi/utils/standard_padding.dart';
 import 'package:projectasahi/widgets/fade_in.dart';
 import 'package:projectasahi/widgets/platform_aware_asset_image.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ImageDialog extends StatefulWidget {
   final String characterId;
@@ -72,6 +73,28 @@ class _ImageDialogState extends State<ImageDialog> {
               child: Hero(
                 tag: '${widget.characterId}/${widget.galleryAssetName}',
                 child: PlatformAwareAssetImage(
+                  loadingBuilder: (context, child, loadingProgress) {
+                    if (loadingProgress == null) return child;
+                    return Stack(
+                      children: [
+                        Positioned.fill(
+                          child: FittedBox(
+                            child: PlatformAwareAssetImage(
+                              asset: data.value.split('.')[0] + "_thumb.png",
+                            ),
+                          ),
+                        ),
+                        Center(
+                          child: CircularProgressIndicator(
+                            value: loadingProgress.expectedTotalBytes != null
+                                ? loadingProgress.cumulativeBytesLoaded /
+                                    loadingProgress.expectedTotalBytes
+                                : null,
+                          ),
+                        ),
+                      ],
+                    );
+                  },
                   asset: data.value,
                 ),
               ),
@@ -87,7 +110,8 @@ class _ImageDialogState extends State<ImageDialog> {
                 elevation: 4,
                 child: Container(
                   constraints: BoxConstraints(
-                      maxWidth: min(query.size.width * 0.3, 300)),
+                    maxWidth: min(query.size.width * 0.3, 300),
+                  ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -143,7 +167,30 @@ class _ImageDialogState extends State<ImageDialog> {
                           tr(data.desc),
                         ),
                       ),
-                    ],
+                      data.artist != null
+                          ? Padding(
+                              padding: EdgeInsets.all(8),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    tr('artist') + ":",
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      if (data.artistLink != null &&
+                                          data.artistLink.isNotEmpty) {
+                                        launch(data.artistLink);
+                                      }
+                                    },
+                                    child: Text(
+                                      data.artist,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                          : null,
+                    ].where((element) => element != null).toList(),
                   ),
                 ),
               ),

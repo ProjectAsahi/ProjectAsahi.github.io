@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projectasahi/material/material_page_route_ex.dart';
+import 'package:projectasahi/scenes/about_scene.dart';
 import 'package:projectasahi/scenes/character_detail_scene.dart';
 import 'package:projectasahi/scenes/characters_scene.dart';
 import 'package:projectasahi/scenes/home_scene.dart';
@@ -32,6 +33,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         settings: settings,
       );
     }
+  }
+  if (settings.name.startsWith('/about')) {
+    return MaterialPageRouteEx(
+      builder: (_) => AboutScene(),
+      settings: settings,
+    );
   }
   return MaterialPageRouteEx(builder: (_) => HomeScene(), settings: settings);
 }

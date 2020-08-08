@@ -10,6 +10,9 @@
     "description": "Description",
     "relationship": "Relationship",
     "gallery": "Gallery",
+    "producer": "Producer",
+    "project_assistant": "Project Assistant",
+    "artist": "Artist",
     "favourite": {
         "food": "Favorite food",
         "cocktails": "Favorite cocktails",
@@ -44,12 +47,20 @@
                     "desc": "Asahi loves desserts, especially macaroons, and for him sweets are a source of joy."
                 },
                 "swimming": {
-                    "title": "By the sea",
+                    "title": "Swimsuit",
                     "desc": "Despite being a boy, the swimsuit was no slouch, and his innocence and cuteness made him a dazzling jewel on the beach."
                 },
                 "cooking": {
                     "title": "Making dessert",
                     "desc": "In addition to enjoying desserts very much, Asahi also likes to make his own desserts at home and sometimes develops new ones."
+                },
+                "crepe": {
+                    "title": "Crepe",
+                    "desc": "When I go out with Tesla, Takagaki Asahi will buy different crepes and swap them, and it's a blessing for Takagaki Asahi to be able to taste the different flavors of crepes."
+                },
+                "sea": {
+                    "title": "Sea",
+                    "desc": "Takagaki Asahi is very fond of holding Tesla's hand when go out, and to the outside world it looks like a pair of close sisters, but in reality they are brother and sister."
                 },
                 "avatar_3d": {
                     "title": "3D model",
@@ -137,6 +148,14 @@
                 "icon_3": {
                     "title": "Computer Science",
                     "desc": "Tesla, who usually remains calm and collected, can't help but smile when she's doing research!"
+                },
+                "crepe": {
+                    "title": "Crepe",
+                    "desc": "Tesla and Takagaki Asahi would go out to buy different flavors of crepes and exchange them with each other, and although Tesla didn't show it on her faces, the fact that it was an indirect kiss made Tesla feel very excited."
+                },
+                "sea": {
+                    "title": "Sea",
+                    "desc": "Takagaki Asahi likes to hold Tesla's hand when go out, and the zero contact makes Tesla very excited, but doesn't show it in order to keep a cool demeanor."
                 },
                 "yuki": {
                     "title": "Snowy forest",

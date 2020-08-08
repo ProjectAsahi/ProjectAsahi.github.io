@@ -8,7 +8,6 @@ class MenuItem {
 
 final List<MenuItem> tabs = [
   MenuItem("角色", '/character'),
-  MenuItem("故事", '/story'),
   MenuItem("关于", '/about')
 ];
 

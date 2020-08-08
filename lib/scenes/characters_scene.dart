@@ -41,11 +41,7 @@ class CharactersScene extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "Hello my love",
-                        textAlign: TextAlign.center,
-                      ),
-                      Text(
-                        "I've been searching for someone like you",
+                        "Hello, my love",
                         textAlign: TextAlign.center,
                       ),
                     ],

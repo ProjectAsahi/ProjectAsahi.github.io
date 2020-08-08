@@ -27,8 +27,16 @@ class Gallery {
   final String value;
   final String title;
   final String desc;
+  final String artist;
+  final String artistLink;
 
-  Gallery({this.value, this.title, this.desc});
+  Gallery({
+    this.value,
+    this.title,
+    this.desc,
+    this.artist,
+    this.artistLink,
+  });
 }
 
 class CharacterData {
@@ -97,21 +105,41 @@ final characters = [
         value: 'Asahi/live.webp',
         title: "characters.asahi.gallery.live.title",
         desc: "characters.asahi.gallery.live.desc",
+        artist: '-salz-',
+        artistLink: 'https://www.pixiv.net/users/1788244',
       ),
       Gallery(
         value: 'Asahi/gamming.webp',
         title: "characters.asahi.gallery.gamming.title",
         desc: "characters.asahi.gallery.gamming.desc",
+        artist: '-salz-',
+        artistLink: 'https://www.pixiv.net/users/1788244',
       ),
       Gallery(
         value: 'Asahi/cookie.webp',
         title: "characters.asahi.gallery.cookie.title",
         desc: "characters.asahi.gallery.cookie.desc",
+        artist: '-salz-',
+        artistLink: 'https://www.pixiv.net/users/1788244',
       ),
       Gallery(
         value: 'Asahi/swimming.webp',
         title: "characters.asahi.gallery.swimming.title",
         desc: "characters.asahi.gallery.swimming.desc",
+        artist: '-salz-',
+        artistLink: 'https://www.pixiv.net/users/1788244',
+      ),
+      Gallery(
+        value: 'crepe.webp',
+        title: "characters.asahi.gallery.crepe.title",
+        desc: "characters.asahi.gallery.crepe.desc",
+        artist: 'saintbernard',
+      ),
+      Gallery(
+        value: 'sea.webp',
+        title: "characters.asahi.gallery.sea.title",
+        desc: "characters.asahi.gallery.sea.desc",
+        artist: 'saintbernard',
       ),
       Gallery(
         value: 'Asahi/avatar_3d.webp',
@@ -122,6 +150,8 @@ final characters = [
         value: 'Asahi/cooking.webp',
         title: "characters.asahi.gallery.cooking.title",
         desc: "characters.asahi.gallery.cooking.desc",
+        artist: 'にま',
+        artistLink: 'https://www.pixiv.net/users/9790932',
       ),
     ],
     relationship: [
@@ -221,21 +251,38 @@ final characters = [
         value: 'Tesla/icon_1.webp',
         title: "characters.tesla.gallery.icon_1.title",
         desc: "characters.tesla.gallery.icon_1.desc",
+        artist: '坂月',
       ),
       Gallery(
         value: 'Tesla/icon_2.webp',
         title: "characters.tesla.gallery.icon_2.title",
         desc: "characters.tesla.gallery.icon_2.desc",
+        artist: '坂月',
       ),
       Gallery(
         value: 'Tesla/icon_3.webp',
         title: "characters.tesla.gallery.icon_3.title",
         desc: "characters.tesla.gallery.icon_3.desc",
+        artist: '坂月',
       ),
       Gallery(
         value: 'Tesla/yuki.webp',
         title: "characters.tesla.gallery.yuki.title",
         desc: "characters.tesla.gallery.yuki.desc",
+        artist: 'chilcy',
+        artistLink: 'https://www.pixiv.net/users/34847027',
+      ),
+      Gallery(
+        value: 'crepe.webp',
+        title: "characters.asahi.gallery.crepe.title",
+        desc: "characters.asahi.gallery.crepe.desc",
+        artist: 'saintbernard',
+      ),
+      Gallery(
+        value: 'sea.webp',
+        title: "characters.asahi.gallery.sea.title",
+        desc: "characters.asahi.gallery.sea.desc",
+        artist: 'saintbernard',
       ),
     ],
     relationship: [
@@ -320,16 +367,22 @@ final characters = [
         value: 'Aki/working.webp',
         title: "characters.aki.gallery.working.title",
         desc: "characters.aki.gallery.working.desc",
+        artist: '-salz-',
+        artistLink: 'https://www.pixiv.net/users/1788244',
       ),
       Gallery(
         value: 'Aki/pandorahearts.webp',
         title: "characters.aki.gallery.pandorahearts.title",
         desc: "characters.aki.gallery.pandorahearts.desc",
+        artist: '辻本嗣',
+        artistLink: 'https://www.pixiv.net/users/7170645',
       ),
       Gallery(
         value: 'Aki/bar.png',
         title: "characters.aki.gallery.bar.title",
         desc: "characters.aki.gallery.bar.desc",
+        artist: 'よくに',
+        artistLink: 'https://www.pixiv.net/users/14066606',
       ),
     ],
     relationship: [
@@ -426,16 +479,20 @@ final characters = [
         value: 'Yi/boy.webp',
         title: "characters.yi.gallery.boy.title",
         desc: "characters.yi.gallery.boy.desc",
+        artist: '坂月',
       ),
       Gallery(
         value: 'Yi/girl.webp',
         title: "characters.yi.gallery.girl.title",
         desc: "characters.yi.gallery.girl.desc",
+        artist: '坂月',
       ),
       Gallery(
         value: 'Yi/chibi.png',
         title: "characters.yi.gallery.chibi.title",
         desc: "characters.yi.gallery.chibi.desc",
+        artist: 'EU03',
+        artistLink: 'https://www.pixiv.net/users/226500',
       ),
     ],
     relationship: [

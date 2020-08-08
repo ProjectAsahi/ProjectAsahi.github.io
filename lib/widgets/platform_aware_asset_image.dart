@@ -9,6 +9,7 @@ class PlatformAwareAssetImage extends StatelessWidget {
   final String package;
   final double width;
   final double height;
+  final ImageLoadingBuilder loadingBuilder;
 
   const PlatformAwareAssetImage({
     Key key,
@@ -18,6 +19,7 @@ class PlatformAwareAssetImage extends StatelessWidget {
     this.width,
     this.height,
     this.alignment = Alignment.center,
+    this.loadingBuilder,
   }) : super(key: key);
 
   @override
@@ -35,6 +37,7 @@ class PlatformAwareAssetImage extends StatelessWidget {
         alignment: alignment,
         width: width,
         height: height,
+        loadingBuilder: this.loadingBuilder,
       );
     }
 

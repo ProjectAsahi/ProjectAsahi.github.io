@@ -69,7 +69,9 @@ class HomeScene extends StatelessWidget {
                                   Expanded(
                                     child: PlatformAwareAssetImage(
                                       alignment: Alignment.bottomCenter,
-                                      asset: 'cover.webp',
+                                      asset: mediaQuery.size.width > 3840
+                                          ? 'cover.webp'
+                                          : 'cover_sm.webp',
                                     ),
                                   ),
                                 ],
@@ -137,7 +139,9 @@ class HomeScene extends StatelessWidget {
                       return PlatformAwareAssetImage(
                         fit: BoxFit.cover,
                         alignment: align,
-                        asset: 'vt.webp',
+                        asset: mediaQuery.size.width > 1280
+                            ? 'vt.webp'
+                            : 'vt_sm.webp',
                       );
                     },
                   ),
@@ -195,7 +199,7 @@ class HomeScene extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          'Keep in touch',
+                          'Social',
                           style: Theme.of(context).textTheme.headline2.copyWith(
                                 color:
                                     Theme.of(context).textTheme.bodyText1.color,

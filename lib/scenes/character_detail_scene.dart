@@ -243,6 +243,7 @@ class _Gallery extends StatelessWidget {
             crossAxisCount: columnCount, childAspectRatio: 1.0),
         itemCount: data.gallery.length,
         itemBuilder: (context, index) {
+          final item = data.gallery[index];
           return FadeIn(
             delay: 0.5 + index.toDouble() / 20,
             translateY: 50,
@@ -251,9 +252,10 @@ class _Gallery extends StatelessWidget {
                 children: [
                   Positioned.fill(
                     child: Hero(
-                      tag: '${data.id}/${data.gallery[index].value}',
-                      child: PlatformAwareAssetImage(
-                        asset: data.gallery[index].value,
+                      tag: '${data.id}/${item.value}',
+                      child: FittedBox(
+                        child: PlatformAwareAssetImage(
+                            asset: item.value.split('.')[0] + "_thumb.png"),
                       ),
                     ),
                   ),
