@@ -123,6 +123,10 @@
                 "bar": {
                     "title": "Working",
                     "desc": "While working at the bar, Aki made a small name for herself, and the grace with which he raised her hands during the bartending process attracted some customers."
+                },
+                "street": {
+                    "title": "Street",
+                    "desc": "Buying stuff from the local shop"
                 }
             }
         },

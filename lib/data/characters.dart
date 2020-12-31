@@ -378,6 +378,13 @@ final characters = [
         artistLink: 'https://www.pixiv.net/users/7170645',
       ),
       Gallery(
+        value: 'Aki/street.png',
+        title: "characters.aki.gallery.street.title",
+        desc: "characters.aki.gallery.street.desc",
+        artist: 'しあびす',
+        artistLink: 'https://www.pixiv.net/users/8131032',
+      ),
+      Gallery(
         value: 'Aki/bar.png',
         title: "characters.aki.gallery.bar.title",
         desc: "characters.aki.gallery.bar.desc",
